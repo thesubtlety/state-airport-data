@@ -1,0 +1,1344 @@
+
+        <!DOCTYPE html>
+    <html>
+    <head>
+        <title>MT Airports Table</title>
+        <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+    </head>
+    <style>
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 30%;
+            top: 0;
+
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(146, 143, 143); /* Fallback color */
+            background-color: rgba(210, 204, 204, 0.9); /* Black w/ opacity */
+            padding-top: 30px; /* Added padding to ensure modal content does not touch the edges */
+        }
+
+        .modal-content {
+            /* Existing styles */
+            margin: auto;
+            display: block;
+            width: 80%; /* Adjust this to control the modal width */
+            max-width: 700px; /* Adjust this to control the maximum size of the modal */
+            position: relative; 
+            top: 50%;
+            transform: translateY(-50%);
+            max-height: 80vh; /* vh is a percentage of the viewport height */
+            object-fit: contain; /* This makes the image keep its aspect ratio */
+        }
+
+        .close {
+            position: absolute;
+            top: -10px; /* Adjust as needed */
+            right: 15px; /* Adjust as needed */
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Style the Image Used to Trigger the Modal */
+        .myImg {
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+            max-height: 100vh;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table.sortable {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+        table.sortable th, table.sortable td {
+            text-align: left;
+            padding: 8px;
+        }
+        table.sortable th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        table.sortable tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        table.sortable tr:hover {
+            background-color: #ddd;
+        }
+        .image-cell img {
+            height: 50px; /* Adjust based on your preference */
+            width: auto;
+        }
+    </style>
+    <body>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="myImg" class="modal-content" id="img01">
+    </div>
+    <table border="0" class="sortable">
+    <tr>
+        <th>Image</th>
+        <th>Airport Identifier</th>
+        <th>Airport Name</th>
+        <th>Courtesy Car</th>
+        <th>Bicycles</th>
+        <th>Camping</th>
+        <th>Meals</th>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/3U3.png" width="70" alt="3U3"></td>
+        <td>3U3</td>
+        <td>ANACONDA</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/3U4.png" width="70" alt="3U4"></td>
+        <td>3U4</td>
+        <td>ASHLAND</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/3U5.png" width="70" alt="3U5"></td>
+        <td>3U5</td>
+        <td>AUGUSTA</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/BHK.png" width="70" alt="BHK"></td>
+        <td>BHK</td>
+        <td>BAKER</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/3U7.png" width="70" alt="3U7"></td>
+        <td>3U7</td>
+        <td>BENCHMARK</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/3U8.png" width="70" alt="3U8"></td>
+        <td>3U8</td>
+        <td>BIG SANDY</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/6S0.png" width="70" alt="6S0"></td>
+        <td>6S0</td>
+        <td>BIG TIMBER</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/BIL.png" width="70" alt="BIL"></td>
+        <td>BIL</td>
+        <td>BILLINGS</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/BB0.png" width="70" alt="BB0"></td>
+        <td>BB0</td>
+        <td>BLACK BUTTE NORTH</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/3U9.png" width="70" alt="3U9"></td>
+        <td>3U9</td>
+        <td>BOULDER</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/BZN.png" width="70" alt="BZN"></td>
+        <td>BZN</td>
+        <td>BOZEMAN</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/6S1.png" width="70" alt="6S1"></td>
+        <td>6S1</td>
+        <td>BRIDGER</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/00F.png" width="70" alt="00F"></td>
+        <td>00F</td>
+        <td>BROADUS</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/8S0.png" width="70" alt="8S0"></td>
+        <td>8S0</td>
+        <td>BROWNING</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/BW8.png" width="70" alt="BW8"></td>
+        <td>BW8</td>
+        <td>BULLWHACKER</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/BTM.png" width="70" alt="BTM"></td>
+        <td>BTM</td>
+        <td>BUTTE</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/8U9.png" width="70" alt="8U9"></td>
+        <td>8U9</td>
+        <td>CANYON FERRY</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/LTY.png" width="70" alt="LTY"></td>
+        <td>LTY</td>
+        <td>CHESTER</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/S71.png" width="70" alt="S71"></td>
+        <td>S71</td>
+        <td>CHESTER</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/CII.png" width="70" alt="CII"></td>
+        <td>CII</td>
+        <td>CHOTEAU</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/4U6.png" width="70" alt="4U6"></td>
+        <td>4U6</td>
+        <td>CIRCLE</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/M46.png" width="70" alt="M46"></td>
+        <td>M46</td>
+        <td>COLSTRIP</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/6S3.png" width="70" alt="6S3"></td>
+        <td>6S3</td>
+        <td>COLUMBUS</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/S04.png" width="70" alt="S04"></td>
+        <td>S04</td>
+        <td>CONDON</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/S01.png" width="70" alt="S01"></td>
+        <td>S01</td>
+        <td>CONRAD</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/CW0.png" width="70" alt="CW0"></td>
+        <td>CW0</td>
+        <td>COW CREEK</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/S85.png" width="70" alt="S85"></td>
+        <td>S85</td>
+        <td>CULBERTSON</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/CTB.png" width="70" alt="CTB"></td>
+        <td>CTB</td>
+        <td>CUT BANK</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/38S.png" width="70" alt="38S"></td>
+        <td>38S</td>
+        <td>DEER LODGE</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/H28.png" width="70" alt="H28"></td>
+        <td>H28</td>
+        <td>DEL BONITA</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/4U9.png" width="70" alt="4U9"></td>
+        <td>4U9</td>
+        <td>DELL</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/5U0.png" width="70" alt="5U0"></td>
+        <td>5U0</td>
+        <td>DENTON</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/DLN.png" width="70" alt="DLN"></td>
+        <td>DLN</td>
+        <td>DILLON</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/M26.png" width="70" alt="M26"></td>
+        <td>M26</td>
+        <td>DRUMMOND</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/5U1.png" width="70" alt="5U1"></td>
+        <td>5U1</td>
+        <td>DUTTON</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/8U3.png" width="70" alt="8U3"></td>
+        <td>8U3</td>
+        <td>EAST POPLAR</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/97M.png" width="70" alt="97M"></td>
+        <td>97M</td>
+        <td>EKALAKA</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/EKS.png" width="70" alt="EKS"></td>
+        <td>EKS</td>
+        <td>ENNIS</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/88M.png" width="70" alt="88M"></td>
+        <td>88M</td>
+        <td>EUREKA</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/5U5.png" width="70" alt="5U5"></td>
+        <td>5U5</td>
+        <td>FAIRFIELD</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/5U6.png" width="70" alt="5U6"></td>
+        <td>5U6</td>
+        <td>FAIRVIEW</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/53U.png" width="70" alt="53U"></td>
+        <td>53U</td>
+        <td>FERNDALE</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/1S3.png" width="70" alt="1S3"></td>
+        <td>1S3</td>
+        <td>FORSYTH</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/79S.png" width="70" alt="79S"></td>
+        <td>79S</td>
+        <td>FORT BENTON</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/37S.png" width="70" alt="37S"></td>
+        <td>37S</td>
+        <td>FORT PECK</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/5U7.png" width="70" alt="5U7"></td>
+        <td>5U7</td>
+        <td>FORT SMITH</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/29S.png" width="70" alt="29S"></td>
+        <td>29S</td>
+        <td>GARDINER</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/5U8.png" width="70" alt="5U8"></td>
+        <td>5U8</td>
+        <td>GERALDINE</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/GGW.png" width="70" alt="GGW"></td>
+        <td>GGW</td>
+        <td>GLASGOW</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/GDV.png" width="70" alt="GDV"></td>
+        <td>GDV</td>
+        <td>GLENDIVE</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/GTF.png" width="70" alt="GTF"></td>
+        <td>GTF</td>
+        <td>GREAT FALLS</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/HRF.png" width="70" alt="HRF"></td>
+        <td>HRF</td>
+        <td>HAMILTON</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/00U.png" width="70" alt="00U"></td>
+        <td>00U</td>
+        <td>HARDIN</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/48S.png" width="70" alt="48S"></td>
+        <td>48S</td>
+        <td>HARLEM</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/HWQ.png" width="70" alt="HWQ"></td>
+        <td>HWQ</td>
+        <td>HARLOWTON</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/HVR.png" width="70" alt="HVR"></td>
+        <td>HVR</td>
+        <td>HAVRE</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/HLN.png" width="70" alt="HLN"></td>
+        <td>HLN</td>
+        <td>HELENA</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/6U5.png" width="70" alt="6U5"></td>
+        <td>6U5</td>
+        <td>HINSDALE</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/6U6.png" width="70" alt="6U6"></td>
+        <td>6U6</td>
+        <td>HOGELAND</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/S09.png" width="70" alt="S09"></td>
+        <td>S09</td>
+        <td>HOT SPRINGS</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/6U7.png" width="70" alt="6U7"></td>
+        <td>6U7</td>
+        <td>HYSHAM</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/JDN.png" width="70" alt="JDN"></td>
+        <td>JDN</td>
+        <td>JORDAN</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/GPI.png" width="70" alt="GPI"></td>
+        <td>GPI</td>
+        <td>KALISPELL (1)</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/S27.png" width="70" alt="S27"></td>
+        <td>S27</td>
+        <td>KALISPELL (2)</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/MT3.png" width="70" alt="MT3"></td>
+        <td>MT3</td>
+        <td>KNOX RIDGE</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/6S8.png" width="70" alt="6S8"></td>
+        <td>6S8</td>
+        <td>LAUREL</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/80S.png" width="70" alt="80S"></td>
+        <td>80S</td>
+        <td>LAVINA</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/LC0.png" width="70" alt="LC0"></td>
+        <td>LC0</td>
+        <td>LEFT COULEE</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/LWT.png" width="70" alt="LWT"></td>
+        <td>LWT</td>
+        <td>LEWISTOWN</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/S59.png" width="70" alt="S59"></td>
+        <td>S59</td>
+        <td>LIBBY</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/S69.png" width="70" alt="S69"></td>
+        <td>S69</td>
+        <td>LINCOLN</td>
+        <td>Yes</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/LVM.png" width="70" alt="LVM"></td>
+        <td>LVM</td>
+        <td>LIVINGSTON</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/M75.png" width="70" alt="M75"></td>
+        <td>M75</td>
+        <td>MALTA</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/0S1.png" width="70" alt="0S1"></td>
+        <td>0S1</td>
+        <td>MEADOW CREEK</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/MLS.png" width="70" alt="MLS"></td>
+        <td>MLS</td>
+        <td>MILES CITY</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/MSO.png" width="70" alt="MSO"></td>
+        <td>MSO</td>
+        <td>MISSOULA</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/S00.png" width="70" alt="S00"></td>
+        <td>S00</td>
+        <td>OPHEIM</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/U05.png" width="70" alt="U05"></td>
+        <td>U05</td>
+        <td>PHILIPSBURG</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/S34.png" width="70" alt="S34"></td>
+        <td>S34</td>
+        <td>PLAINS</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/PWD.png" width="70" alt="PWD"></td>
+        <td>PWD</td>
+        <td>PLENTYWOOD</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/8S1.png" width="70" alt="8S1"></td>
+        <td>8S1</td>
+        <td>POLSON</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/PO1.png" width="70" alt="PO1"></td>
+        <td>PO1</td>
+        <td>POPLAR</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/RED.png" width="70" alt="RED"></td>
+        <td>RED</td>
+        <td>RED LODGE</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/7U8.png" width="70" alt="7U8"></td>
+        <td>7U8</td>
+        <td>RICHEY</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/RC0.png" width="70" alt="RC0"></td>
+        <td>RC0</td>
+        <td>ROCK CREEK</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/7S0.png" width="70" alt="7S0"></td>
+        <td>7S0</td>
+        <td>RONAN</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/RPX.png" width="70" alt="RPX"></td>
+        <td>RPX</td>
+        <td>ROUNDUP</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/M42.png" width="70" alt="M42"></td>
+        <td>M42</td>
+        <td>RUSSIAN FLAT</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/8U0.png" width="70" alt="8U0"></td>
+        <td>8U0</td>
+        <td>RYEGATE</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/8U1.png" width="70" alt="8U1"></td>
+        <td>8U1</td>
+        <td>SAND SPRINGS</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/8U2.png" width="70" alt="8U2"></td>
+        <td>8U2</td>
+        <td>SCHAFER MEADOWS</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/9S2.png" width="70" alt="9S2"></td>
+        <td>9S2</td>
+        <td>SCOBEY</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/23S.png" width="70" alt="23S"></td>
+        <td>23S</td>
+        <td>SEELEY LAKE (1)</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/M35.png" width="70" alt="M35"></td>
+        <td>M35</td>
+        <td>SEELEY LAKE (2)</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/SBX.png" width="70" alt="SBX"></td>
+        <td>SBX</td>
+        <td>SHELBY</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/SDY.png" width="70" alt="SDY"></td>
+        <td>SDY</td>
+        <td>SIDNEY</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/8U4.png" width="70" alt="8U4"></td>
+        <td>8U4</td>
+        <td>SPOTTED BEAR</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/52S.png" width="70" alt="52S"></td>
+        <td>52S</td>
+        <td>ST IGNATIUS</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/S64.png" width="70" alt="S64"></td>
+        <td>S64</td>
+        <td>STANFORD</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/32S.png" width="70" alt="32S"></td>
+        <td>32S</td>
+        <td>STEVENSVILLE</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/9S4.png" width="70" alt="9S4"></td>
+        <td>9S4</td>
+        <td>SUPERIOR</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/7S8.png" width="70" alt="7S8"></td>
+        <td>7S8</td>
+        <td>SWEETGRASS</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/8U6.png" width="70" alt="8U6"></td>
+        <td>8U6</td>
+        <td>TERRY</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/THM.png" width="70" alt="THM"></td>
+        <td>THM</td>
+        <td>THOMPSON FALLS</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/9S5.png" width="70" alt="9S5"></td>
+        <td>9S5</td>
+        <td>THREE FORKS</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/B70.png" width="70" alt="B70"></td>
+        <td>B70</td>
+        <td>TIBER DAM</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/8U8.png" width="70" alt="8U8"></td>
+        <td>8U8</td>
+        <td>TOWNSEND</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/57S.png" width="70" alt="57S"></td>
+        <td>57S</td>
+        <td>TROY</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/9U0.png" width="70" alt="9U0"></td>
+        <td>9U0</td>
+        <td>TURNER</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/RVF.png" width="70" alt="RVF"></td>
+        <td>RVF</td>
+        <td>TWIN BRIDGES</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/7S7.png" width="70" alt="7S7"></td>
+        <td>7S7</td>
+        <td>VALIER</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/4U7.png" width="70" alt="4U7"></td>
+        <td>4U7</td>
+        <td>WEST FORK</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/WYS.png" width="70" alt="WYS"></td>
+        <td>WYS</td>
+        <td>WEST YELLOWSTONE (1)</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/7S6.png" width="70" alt="7S6"></td>
+        <td>7S6</td>
+        <td>WHITE SULPHUR SPRINGS</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/58S.png" width="70" alt="58S"></td>
+        <td>58S</td>
+        <td>WHITEFISH</td>
+        <td>No</td>
+        <td>Yes</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/9U1.png" width="70" alt="9U1"></td>
+        <td>9U1</td>
+        <td>WILSALL</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/9S7.png" width="70" alt="9S7"></td>
+        <td>9S7</td>
+        <td>WINIFRED</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/7S2.png" width="70" alt="7S2"></td>
+        <td>7S2</td>
+        <td>WINNETT</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/7S4.png" width="70" alt="7S4"></td>
+        <td>7S4</td>
+        <td>WISDOM</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/02T.png" width="70" alt="02T"></td>
+        <td>02T</td>
+        <td>WISE RIVER</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/OLF.png" width="70" alt="OLF"></td>
+        <td>OLF</td>
+        <td>WOLF POINT</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>Yes</td>
+    </tr>
+    
+    <tr>
+        <td><img class="myImg" src="images/WH0.png" width="70" alt="WH0"></td>
+        <td>WH0</td>
+        <td>WOODHAWK</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+        <td>No</td>
+    </tr>
+    
+    </table>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("img01");
+
+        document.querySelectorAll('.myImg').forEach(item => {
+            item.addEventListener('click', event => {
+                modal.style.display = "block";
+                modalImg.src = item.src;
+            })
+        })
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() { 
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>
+    
