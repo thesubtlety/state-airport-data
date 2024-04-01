@@ -11,10 +11,10 @@ update page nums
 update data terms
 '''
 
-pdf_url = 'https://www.oregon.gov/aviation/Documents/OregonAirportDirectory.pdf'
-pdf_path = 'directories/oregon-directory.pdf'
-outputf = 'airport_info_or.csv'
-imgdir = 'images_or/'
+pdf_url = 'https://drive.google.com/file/d/1s04nV-sgQ0J5bsz9d9yyxE2I1RP3k0ao/view'
+pdf_path = 'directories/southdakota-directory.pdf'
+outputf = 'airport_info_sd.csv'
+imgdir = 'images_sd/'
 
 airports_url = 'https://davidmegginson.github.io/ourairports-data/airports.csv'
 airports_path = 'airports.csv'
@@ -132,8 +132,8 @@ def main():
         total_pages = len(pdf.pages)
         print(f"Total pages: {total_pages}")
 
-        start_page = 26
-        end_page = 31
+        start_page = 36
+        end_page = 175
 
         for i in range(start_page - 1, total_pages - (total_pages - end_page) - 1): # pairs of pages
             if (i - start_page + 1) % 2 == 0:  # every other

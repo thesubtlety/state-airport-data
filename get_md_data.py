@@ -11,10 +11,10 @@ update page nums
 update data terms
 '''
 
-pdf_url = 'https://www.oregon.gov/aviation/Documents/OregonAirportDirectory.pdf'
-pdf_path = 'directories/oregon-directory.pdf'
-outputf = 'airport_info_or.csv'
-imgdir = 'images_or/'
+pdf_url = 'https://marylandregionalaviation.aero/wp-content/uploads/2023/09/Airport%20Directory%202023-24.pdf'
+pdf_path = 'directories/maryland-directory.pdf'
+outputf = 'airport_info_md.csv'
+imgdir = 'images_md/'
 
 airports_url = 'https://davidmegginson.github.io/ourairports-data/airports.csv'
 airports_path = 'airports.csv'
@@ -65,10 +65,16 @@ def extract_airport_info(page, text):
     print(lines)
     if lines:
         # Assuming one of these lines contains the airport name
-        namestr = lines[0]
-        ident = namestr.split(" ")[-1]
-        nme = " ".join(namestr.split(" ")[1:-1])
-
+        nme = lines[0]
+        if "St. Mary’s" in nme: nme = "St. Mary's" # why
+        if "/" in nme: nme = lines[0].split('/')[-1].strip()
+        if "-" in nme: nme = lines[0].split('-')[-1].strip()
+        identstr = "_"+ "_".join(lines[-15:-1])+"_" # wow
+        print(identstr)
+        idmatch = re.search(r"[_\/-]{}.*?(\w\w\w)_".format(re.escape(nme)), identstr)
+        if idmatch:
+            ident = idmatch.group(1)        
+        
         print(nme)
         print(ident)
 
@@ -85,7 +91,7 @@ def extract_airport_info(page, text):
             airport_info["Courtesy Car"] = "Yes"
         if "camping" in line.lower():
             airport_info["Camping"] = "Yes"
-        if "dining: " in line.lower():
+        if "restaurant" in line.lower():
             airport_info["Meals"] = "Yes"
         if "bicycles" in line.lower() or "bikes" in line.lower():
             airport_info["Bicycles"] = "Yes"
@@ -132,8 +138,8 @@ def main():
         total_pages = len(pdf.pages)
         print(f"Total pages: {total_pages}")
 
-        start_page = 26
-        end_page = 31
+        start_page = 11
+        end_page = 78
 
         for i in range(start_page - 1, total_pages - (total_pages - end_page) - 1): # pairs of pages
             if (i - start_page + 1) % 2 == 0:  # every other

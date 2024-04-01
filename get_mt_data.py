@@ -2,14 +2,14 @@ import pdfplumber
 import pandas as pd
 import requests
 import os
-import csv
+import re
 from pdf2image import convert_from_path
 
 pdf_url = 'https://www.mdt.mt.gov/other/webdata/external/aero/airport-directory.pdf'
-mt_pdf_path = 'montana-directory.pdf'
+mt_pdf_path = 'directories/montana-directory.pdf'
 outfile = 'airport_info_mt.csv'
 
-def extract_airport_info(text):
+def extract_airport_info(i, text):
     # Initialize dictionary to hold extracted info
     airport_info = {
         "Airport Identifier": "",
@@ -22,9 +22,27 @@ def extract_airport_info(text):
     
     # Split text into lines for easier processing
     lines = text.split('\n')
+    print(lines)
     if lines:
-        # Assuming the first line contains the airport name
-        airport_info["Airport Name"] = lines[-1].strip().replace("Ø","0")
+
+        #import pdb
+        #pdb.set_trace()
+
+        identmatch = re.search(r'IDENT:\s(\w\w\w)', text)
+        if identmatch:
+            ident = identmatch.group(1).replace("Ø","0")
+
+        nme = lines[-1]
+
+        print(nme)
+        print(ident)
+
+        if len(ident) > 4 or len(ident) < 3:
+            print(f"Error parsing page {i} ({nme})")
+            #return #ignore for now, manually fix
+        else:
+            airport_info["Airport Identifier"] = ident.strip().replace("Ø","0")
+            airport_info["Airport Name"] = nme.strip()
     
     for line in lines:
         # Extracting the identifier
@@ -36,7 +54,7 @@ def extract_airport_info(text):
         # Check for amenities
         if "rental" in line.lower() or "courtesy" in line.lower() or "crew car" in line.lower():
             airport_info["Courtesy Car"] = "Yes"
-        if "camping" in line.lower():
+        if "camping" in line.lower() or "campsite" in line.lower():
             airport_info["Camping"] = "Yes"
         if "meals" in line.lower() or "food" in line.lower():
             airport_info["Meals"] = "Yes"
@@ -78,15 +96,20 @@ def main():
         total_pages = len(pdf.pages)
         print(f"Total pages: {total_pages}")
 
-        for i, page in enumerate(pdf.pages):
-            if i<35 or i>total_pages-3 : continue #skip the first 35 pages and last 3 pages
+        start_page = 36
+        end_page = 157
+
+        for i, page in enumerate(pdf.pages[start_page-1:], start=start_page):
+            if i > (total_pages - (total_pages-end_page)):
+                break
+
             text = page.extract_text()
             if text:
-                airport_info = extract_airport_info(text)
-                if airport_info["Airport Name"]:
-                    id = airport_info["Airport Identifier"].replace("Ø","0")
-                    #save_image(pdf_path, i, id)
-                airport_data.append(airport_info)
+                airport_info = extract_airport_info(i, text)
+                if airport_info:
+                    airport_data.append(airport_info)
+                    id = airport_info.get("Airport Identifier")
+                    if id: save_image(pdf_path, i, id)
                     
     # Convert the list of dictionaries into a pandas DataFrame
     df = pd.DataFrame(airport_data)
@@ -103,14 +126,5 @@ if __name__ == "__main__":
 '''
 Modifications
 8S1,POLSON,Yes,No,No,Yes
-S09,HOT SPRINGS,Yes,No,No,Yes
-3U8,BIG SANDY,Yes,No,No,Yes
-BZN,BOZEMAN,Yes,No,No,Yes
-97M,EKALAKA,Yes,No,No,Yes
-S59,LIBBY,Yes,No,No,Yes
-7S0,RONAN,Yes,No,No,Yes
-7S6,WHITE SULPHUR SPRINGS,Yes,No,No,Yes
-8U8,TOWNSEND,Yes,No,No,Yes
-KGPI,KALISPELL (1),Yes,No,No,Yes
 
 '''

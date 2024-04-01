@@ -2,8 +2,13 @@ import csv
 import json
 import sys
 
-state_data = 'airport_info_wy.csv'
-outfile = 'data_wy.json'
+if len(sys.argv) < 2:
+    sys.exit("Usage: data_to_json <statecode>")
+
+state = sys.argv[1]
+
+state_data = 'airport_info_%s.csv' % state
+outfile = 'data_%s.json' % state
 all_airports = 'airports.csv'
 
 airport_facts = {}
