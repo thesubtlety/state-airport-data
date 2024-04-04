@@ -73,13 +73,17 @@ def extract_airport_info(page, text):
             airport_info["Airport Name"] = nme.strip()
     
     for line in lines:
-        # Check for amenities
         if "rental" in line.lower() or "courtesy car" in line.lower() or "transportation" in line.lower():
             airport_info["Courtesy Car"] = "Yes"
-        if "camping" in line.lower():
+        
+        campmatch = re.search(r'campgrounds:.+\s[½¼1]|underwing camp: yes', line.lower()) 
+        if campmatch:
             airport_info["Camping"] = "Yes"
-        if "lodging" in line.lower() or "restaurant" in line.lower():
+        
+        mealmatch = re.search(r'dining:.+\s[½¼1]', line.lower()) 
+        if mealmatch:
             airport_info["Meals"] = "Yes"
+        
         if "bicycles" in line.lower() or "bikes" in line.lower():
             airport_info["Bicycles"] = "Yes"
 

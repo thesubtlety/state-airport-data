@@ -7,9 +7,9 @@ if len(sys.argv) < 2:
 
 state = sys.argv[1]
 
-state_data = 'airport_info_%s.csv' % state
-outfile = 'data_%s.json' % state
-all_airports = 'airports.csv'
+state_data = 'data/airport_info_%s.csv' % state
+outfile = 'data/data_%s.json' % state
+all_airports = 'data/airports.csv'
 
 airport_facts = {}
 enriched = {}

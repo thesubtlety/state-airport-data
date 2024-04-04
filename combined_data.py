@@ -25,8 +25,8 @@ if __name__ == '__main__':
 
     combined_items = combine_json_files(file_paths)
     
-    # (Optional) Save the combined list to a new JSON file
-    combined_file_path = 'combined_data.json'
+    # Save the combined list to a new JSON file
+    combined_file_path = 'data/combined_data.json'
     with open(combined_file_path, 'w') as file:
         json.dump({"items": combined_items}, file, indent=4)
     

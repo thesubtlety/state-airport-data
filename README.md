@@ -12,9 +12,8 @@ States without useful data for this project
 
 - [ ] Automate data fixes
 - [ ] show both pages for wyoming, idaho (see southdakota)
-- [ ] re-data mt and tx
 - [ ] Oregon (good luck with text extraction)
-- [ ] add pilots lounge, fishing
+- [ ] duplicates HRF, 32S, 1D8, PUW
 
 ## Instructions
 
