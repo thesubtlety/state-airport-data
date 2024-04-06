@@ -458,7 +458,8 @@ def save_combined_image(pdf_path, start_page, end_page, name, imgdir):
 
     # Convert pages to images
     images = convert_from_path(pdf_path, first_page=start_page, last_page=end_page)
-    
+    images = [image.rotate(270, expand=True) for image in images] #to rotate
+
     # Assuming images are not empty and have the same width
     total_height = sum(image.height for image in images)
     max_width = max(image.width for image in images)
@@ -507,14 +508,14 @@ def main():
     if not os.path.exists(airports_path):
         download_pdf(airports_url, airports_path)
 
-    parse_state(airport_data, "tx", wy_url, "single", 24, 411)
     sys.exit(1)
 
     parse_state(airport_data, "id", id_url, "single", 38, 182)
     parse_state(airport_data, "fl", id_url, "single", 11, 138)
     parse_state(airport_data, "md", mn_url, "pairs", 11, 78)
     parse_state(airport_data, "mn", mn_url, "pairs", 22, 293)
-    #parse_state(airport_data, "or", mn_url, "pairs", 13, 221)
+    parse_state(airport_data, "mt", id_url, "single", 36, 157)
+    parse_state(airport_data, "or", mn_url, "pairs", 13, 221)
     parse_state(airport_data, "mt", id_url, "single", 36, 157)
     parse_state(airport_data, "sd", id_url, "pairs", 36, 175)
     parse_state(airport_data, "tx", wy_url, "single", 24, 411)

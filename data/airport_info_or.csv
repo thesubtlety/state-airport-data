@@ -1,4 +1,98 @@
 Airport Identifier,Airport Name,Courtesy Car,Bicycles,Camping,Meals
-,,No,No,No,No
-,,No,No,No,No
-,,No,No,No,No
+00S,MCKENZIE BRIDGE STATE,No,No,Yes,No
+03S,SANDY RIVER,No,No,No,YES
+05S,VERNONIA MUNICIPAL,No,No,No,Yes
+12S,Monument Municipal,No,No,No,No
+16S,MYRTLE CREEK MUNICIPAL,yes,no,yes,yes
+17S,CHEHALEM,yes,no,no,no
+1S8,ARLINGTON MUNICIPAL,No,No,No,No
+22S,Paisley,No,No,No,Yes
+24S,PINEHURST STATE,No,No,No,No
+25U,MEMALOOSE,no,no,no,no
+26U,MC DERMITT STATE,No,No,No,Yes
+28U,Owyhee Reservoir State Airport,No,No,No,No
+2S2,BEAVER MARSH,no,no,no,no
+2S6,SPORTSMAN,YES,NO,NO,YES
+2S7,CHILOQUIN STATE,no,no,no,yes
+35S,WASCO STATE,No,No,No,Yes
+3S4,Illinois Valley,yes,no,no,no
+3S6,Toketee State,No,No,No,No
+3S7,NEHALEM BAY STATE,No,No,No,Yes
+3S8,Grants Pass,yes,no,no,yes
+3S9,CONDON STATE,No,No,No,Yes
+4S1,Gold Beach Municipal,No,o,No,Yes
+4S2,KEN JERNSTEDT,No,No,No,Yes
+4S7,MALIN,No,No,No,YES
+4S9,Mulino State,No,No,No,Yes
+56S,SEASIDE MUNICIPAL,No,No,No,Yes
+5S0,OAKRIDGE STATE,NO,NO,NO,YES
+5S1,SILVER LAKE USFS STRIP,No,No,No,No
+5S2,Crescent Lake State,No,No,Yes,Yes
+5S6,CAPE BLANCO STATE,NO,NO,NO,NO
+5S9,VALLEY VIEW,no,no,no,yes
+61J,PDX DOWNTOWN HELIPORT,no,yes,no,yes
+61S,COTTAGE GROVE STATE,yes,no,no,yes
+62S,CHRISTMAS VALLEY,No,No,No,Yes
+64S,PROSPECT STATE,No,No,No,Yes
+6K5,Sisters Eagle Air,yes,no,no,yes
+6S2,Florence Municipal,Yes,No,No,Yes
+6S4,DAVIS FIELD,No,No,No,Yes
+6S6,POWERS HAYES FIELD,no,no,no,yes
+77S,HOBBY FIELD,yes,no,no,yes
+7S3,Skyport,no,no,no,yes
+7S5,INDEPENDENCE STATE,YES,NO,NO,YES
+7S9,Lenhardt Airpark,no,no,no,no
+8S3,Santiam Junction State,No,No,No,No
+9S3,Lakeside Municipal,no,no,no,yes
+9S9,Lexington Airport,No,No,No,No
+AST,ASTORIA REGIONAL,Yes,No,No,Yes
+BDN,BEND MUNICIPAL,yes,no,no,yes
+BKE,BAKER CITY MUNICIPAL,no,no,no,no
+BNO,BURNS MUNICIPAL,YES,NO,NO,NO
+BOK,BROOKINGS,no,no,no,yes
+CVO,CORVALLIS MUNICIPAL,YES,NO,NO,YES
+CZK,CASCADE LOCKS STATE,No,No,No,Yes
+DLS,COLUMBIA GORGE RGNL,yes,no,no,yes
+DUG,DUG BAR,No,No,No,No
+EUG,MAHLON SWEET FIELD,yes,no,no,yes
+GCD,GRANT COUNTY REGIONAL,yes,no,no,yes
+HIO,PORTLAND-HILLSBORO,No,No,No,YES
+HRI,HERMISTON MUNICIPAL,yes,no,no,yes
+JSY,Joseph State,YES,YES,NO,YES
+LGD,La Grande Union County Airport,YES,NO,NO,NO
+LKV,LAKE COUNTY,yes,no,no,no
+LMT,CRATER LAKE-KLAMATH RGNL,yes,no,no,yes
+M50,Boardman,No,No,No,No
+MFR,ROGUE VALLEY INTL-MEDFORD,yes,no,no,yes
+MMV,MCMINNVILLE MUNICIPAL,yes,,,yes
+ONO,ONTARIO MUNICIPAL,YES,NO,NO,YES
+ONP,Newport Municipal,no,no,no,yes
+OR9,LORD FLAT,No,No,No,No
+OTH,SW OREGON REGIONAL,yes,no,no,yes
+PDT,EASTERN OREGON RGNL,No,No,No,Yes
+PDX,PORTLAND INTERNATIONAL,no,no,no,yes
+PFC,PACIFIC CITY STATE,No,No,No,Yes
+R03,ALKALI LAKE STATE,No,No,No,No
+R33,Wakonda Beach State,no,no,yes,no
+RBG,Roseburg Regional,yes,no,yes,yes
+RDM,REDMOND MUNICIPAL,yes,no,no,yes
+REO,Rome State,No,No,No,No
+S03,ASHLAND MUNICIPAL,yes,no,no,yes
+S05,BANDON STATE,no,no,no,yes
+S12,ALBANY MUNICIPAL,yes,no,no,yes
+S21,SUNRIVER,no,yes,no,yes
+S30,LEBANON STATE,yes,no,no,yes
+S33,LAKE BILLY CHINOOK,no,no,yes,no
+S33,MADRAS MUNICIPAL,yes,no,no,yes
+S39,Prineville,yes,no,no,no
+S45,SILETZ BAY STATE,no,no,no,yes
+S48,Country Squire,No,No,No,Yes
+S49,Miller Memorial,Yes,No,No,No
+S51,GEORGE FELT,no,no,no,yes
+S60,ENTERPRISE MUNICIPAL,No,No,No,Yes
+S74,TOLEDO STATE,no,no,no,yes
+SLE,SALEM MUNICIPAL,no,no,no,yes
+SPB,SCAPPOOSE INDUSTRIAL,yes,no,no,yes
+TMK,TILLAMOOK,Yes,No,No,Yes
+TTD,PORTLAND-TROUTDALE,no,no,no,yes
+UAO,AURORA STATE,yes,no,no,yes

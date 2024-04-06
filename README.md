@@ -12,8 +12,8 @@ States without useful data for this project
 
 - [ ] Automate data fixes
 - [ ] show both pages for wyoming, idaho (see southdakota)
-- [ ] Oregon (good luck with text extraction)
-- [ ] duplicates HRF, 32S, 1D8, PUW
+- [ ] duplicates HRF, 32S, 1D8, PUW, RGK
+
 
 ## Instructions
 
@@ -28,7 +28,7 @@ brew install poppler
 
 python3 get_state_data.py
 python3 data_to_json.py <statecode e.g. mt>
-python3 combined_data.py data*.json && cat combined_data.json | pbcopy
+python3 combined_data.py data/data*.json && cat data/combined_data.json | pbcopy
 ```
 
 5. Then copy `data.json` to `airstripmap/public/data.json`
@@ -68,7 +68,7 @@ https://www.faa.gov/airports/resources/state_aviation
 - [x] Maryland - https://marylandregionalaviation.aero/publications/
 - [ ] Massachusetts
 - [ ] Michigan
-- [ ] Minnesota
+- [x] Minnesota - https://www.dot.state.mn.us/aero/airportdirectory/index.html
 - [ ] Mississippi
 - [ ] Missouri
 - [x] Montana - https://www.mdt.mt.gov/aviation/airports.aspx
