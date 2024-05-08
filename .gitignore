@@ -1,3 +1,4 @@
 directories/*
 images*/
-airports.csv.DS_Store
+airports.csv
+.DS_Store

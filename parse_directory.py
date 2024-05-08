@@ -174,6 +174,47 @@ def extract_page_info(page, text, state):
                     airport_info["Bicycles"] = "Yes"
 
             return airport_info
+        case "mo":
+            lines = text.split('\n')
+            print(lines)
+            if lines:
+                # Assuming one of these lines contains the airport name
+                nme = lines[1]
+                ident = lines[2]
+                # identmatch = re.search(r'\w+\s-\s(\w+)', name)
+                # if identmatch:
+                #     ident = identmatch.group(1)
+
+                # namematch = re.search(r'(\w+)\s-\s\w+', name)
+                # if namematch:
+                #     nme = namematch.group(1)
+
+                print(nme)
+                print(ident)
+
+                if len(ident) > 4 or len(ident) < 3:
+                    print(f"Error parsing page {page} ({name})")
+                    #return #ignore for now, manually fix
+                else:
+                    airport_info["Airport Identifier"] = ident.strip().replace("Ø","0")
+                    airport_info["Airport Name"] = nme.strip()
+            
+            for line in lines:
+                # Check for amenities
+                if "courtesy car: yes" in line.lower() or "car rental: yes" in line.lower():
+                    airport_info["Courtesy Car"] = "Yes"
+                campmatch = re.search(r'overnight camping.+: yes', line.lower()) 
+                if campmatch:
+                    airport_info["Camping"] = "Yes"
+                
+                mealmatch = re.search(r'numerous dining facilities in area|dining:.+\s[½¼1]', line.lower()) 
+                if mealmatch:
+                    airport_info["Meals"] = "Yes"
+                
+                if "bicycles" in line.lower() or "bikes" in line.lower():
+                    airport_info["Bicycles"] = "Yes"
+
+            return airport_info
         case "mn":
             lines = text.split('\n')
             print(lines)
@@ -254,6 +295,123 @@ def extract_page_info(page, text, state):
             
             if airport_info["Airport Identifier"] == "8S1":
                 airport_info["Courtesy Car"] = "Yes"
+
+            return airport_info
+        case "ne":
+            lines = text.split('\n')
+            print(lines)
+            if lines:
+                name = lines[0]
+                if "(" not in name:
+                    name = lines[1] #stupid
+                namematch = re.search(r'^([a-zA-Z\'-].*)\(\w+\)', name)
+                if namematch:
+                    nme = namematch.group(1)
+                identmatch = re.search(r'^[a-zA-Z\'-].*\((\w+)\)', name)
+                if identmatch:
+                    ident = identmatch.group(1)
+
+                print(nme)
+                print(ident)
+
+                if len(ident) > 4 or len(ident) < 3:
+                    print(f"Error parsing page {page} ({name})")
+                    #return #ignore for now, manually fix
+                else:
+                    airport_info["Airport Identifier"] = ident.strip().replace("Ø","0")
+                    airport_info["Airport Name"] = nme.strip()
+            
+            for line in lines:
+                # Check for amenities
+                if "courtesy vehicle" in line.lower() or "car rental: yes" in line.lower():
+                    airport_info["Courtesy Car"] = "Yes"
+                campmatch = re.search(r'overnight camping.+: yes', line.lower()) 
+                if campmatch:
+                    airport_info["Camping"] = "Yes"
+                
+                mealmatch = re.search(r'numerous dining facilities in area|dining:.+\s[½¼1]', line.lower()) 
+                if mealmatch:
+                    airport_info["Meals"] = "Yes"
+                
+                if "bicycles" in line.lower() or "bikes" in line.lower():
+                    airport_info["Bicycles"] = "Yes"
+
+            return airport_info
+        case "nv":
+            lines = text.split('\n')
+            print(lines)
+            # if lines:
+            #     name = lines[0]
+            #     if "(" not in name:
+            #         name = lines[1] #stupid
+            #     namematch = re.search(r'^([a-zA-Z\'-].*)\(\w+\)', name)
+            #     if namematch:
+            #         nme = namematch.group(1)
+            #     identmatch = re.search(r'^[a-zA-Z\'-].*\((\w+)\)', name)
+            #     if identmatch:
+            #         ident = identmatch.group(1)
+
+            #     print(nme)
+            #     print(ident)
+
+            #     if len(ident) > 4 or len(ident) < 3:
+            #         print(f"Error parsing page {page} ({name})")
+            #         #return #ignore for now, manually fix
+            #     else:
+            #        airport_info["Airport Identifier"] = ident.strip().replace("Ø","0")
+            #        airport_info["Airport Name"] = nme.strip()
+            
+            ident = ""
+            for line in lines:
+                if len(line) == 3 and ident == "":
+                    print(line)
+                    ident = line
+                    airport_info["Airport Identifier"] = ident.strip().replace("Ø","0")
+                    if len(ident) > 4 or len(ident) < 3:
+                        print(f"Error parsing page {page} ({name})")
+                namematch = re.search(r'^([a-zA-Z\'-].*)\(\w+\)', line)
+                if namematch:
+                    nme = namematch.group(1)
+                    print(nme)
+                    airport_info["Airport Name"] = nme.strip()
+                if ident == "01U":
+                    airport_info["Airport Name"] = "DUCKWATER AIRPORT"
+                if ident == "A34":
+                    airport_info["Airport Name"] = "Dayton Valley Airpark"
+                if ident == "ELY":
+                    airport_info["Airport Name"] = "ELY/YELLAND FIELD"
+                if ident == "0L4":
+                    airport_info["Airport Name"] = "Lida Juncion Airport"
+                if ident == "LAS":
+                    airport_info["Airport Name"] = "McCarran International"
+                if ident == "MEV":
+                    airport_info["Airport Name"] = "Minden-Tahoe Airport"
+                if ident == "VGT":
+                    airport_info["Airport Name"] = "North Las Vegas Airport"
+                if ident == "U08":
+                    airport_info["Airport Name"] = "Perkins Field"
+                if ident == "RTS":
+                    airport_info["Airport Name"] = "Reno-Stead Airport"
+                if ident == "N59":
+                    airport_info["Airport Name"] = "Rosaschi Airpark"
+                if ident == "3L2":
+                    airport_info["Airport Name"] = "Sky Ranch Estates"
+                if ident == "LWL":
+                    airport_info["Airport Name"] = "Sky Ranch Estates"
+
+                # Check for amenities
+                if "courtesy car" in line.lower() or "car rental" in line.lower():
+                    airport_info["Courtesy Car"] = "Yes"
+                campmatch = re.search(r'overnight camping.+: fyes', line.lower()) 
+                if campmatch:
+                    airport_info["Camping"] = "Yes"
+                
+                mealmatch = re.search(r'restaurants: yes', line.lower()) 
+                if mealmatch:
+                    airport_info["Meals"] = "Yes"
+                
+                if "bicycles" in line.lower() or "bikes" in line.lower():
+                    airport_info["Bicycles"] = "Yes"
 
             return airport_info
         case "nd":
@@ -458,7 +616,8 @@ def save_combined_image(pdf_path, start_page, end_page, name, imgdir):
 
     # Convert pages to images
     images = convert_from_path(pdf_path, first_page=start_page, last_page=end_page)
-    images = [image.rotate(270, expand=True) for image in images] #to rotate
+    #to rotate uncomment the following
+    #images = [image.rotate(270, expand=True) for image in images] 
 
     # Assuming images are not empty and have the same width
     total_height = sum(image.height for image in images)
@@ -508,16 +667,19 @@ def main():
     if not os.path.exists(airports_path):
         download_pdf(airports_url, airports_path)
 
+    parse_state(airport_data, "nv", "nilurl", "pairs", 12, 111)
     sys.exit(1)
 
+    parse_state(airport_data, "ne", "nilurl", "single", 8, 86)
+    parse_state(airport_data, "mo", "nilurl", "pairs", 17, 258)
     parse_state(airport_data, "id", id_url, "single", 38, 182)
-    parse_state(airport_data, "fl", id_url, "single", 11, 138)
+    parse_state(airport_data, "fl", "nilurl", "single", 11, 138)
     parse_state(airport_data, "md", mn_url, "pairs", 11, 78)
     parse_state(airport_data, "mn", mn_url, "pairs", 22, 293)
-    parse_state(airport_data, "mt", id_url, "single", 36, 157)
+    parse_state(airport_data, "mt", "nilurl", "single", 36, 157)
     parse_state(airport_data, "or", mn_url, "pairs", 13, 221)
-    parse_state(airport_data, "mt", id_url, "single", 36, 157)
-    parse_state(airport_data, "sd", id_url, "pairs", 36, 175)
+    parse_state(airport_data, "mt", "nilurl", "single", 36, 157)
+    parse_state(airport_data, "sd", "nilurl", "pairs", 36, 175)
     parse_state(airport_data, "tx", wy_url, "single", 24, 411)
     parse_state(airport_data, "wa", wy_url, "single", 10, 138)
     parse_state(airport_data, "wi", wy_url, "single", 35, 177)
