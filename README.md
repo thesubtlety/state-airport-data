@@ -61,7 +61,7 @@ https://www.faa.gov/airports/resources/state_aviation
 - [ ] Maine
 - [x] [Maryland](https://marylandregionalaviation.aero/publications/)
 - [ ] Massachusetts
-- [ ] [Michigan](https://www.michigan.gov/mdot/travel/mobility/aeronautics/airports) (pdf broken - needs image recognized)
+- [x] [Michigan](https://www.michigan.gov/mdot/travel/mobility/aeronautics/airports)
 - [x] [Minnesota](https://www.dot.state.mn.us/aero/airportdirectory/index.html)
 - [ ] Mississippi
 - [x] [Missouri](https://www.modot.org/aviation-publications)
