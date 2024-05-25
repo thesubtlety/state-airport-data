@@ -291,20 +291,36 @@ def extract_page_info(page, text, state):
             if lines:
                 ident, nme = "", ""
                 name = lines[0]
-                identmatch = re.search(r'[^,](\w+\s?){1,3} \((\w+)\)', name)
+                identmatch = re.search(r'[^,](\w+\s?){1,3} _?\((\w+)\)?', name)
                 if identmatch:
                     ident = identmatch.group(2)
 
-                namematch = re.search(r'[^,]((\w+\s?){1,3}) \(\w+\)', name)
+                namematch = re.search(r'([^,]+(\w\s?){1,3}) \(\w+\)', name)
                 if namematch:
                     nme = namematch.group(1)
 
                 if len(ident) > 4 or len(ident) < 3:
                     print(f"Error parsing page {page} ({name})")
-                    return #ignore for now, manually fix
+                    sys.exit(1)
+                    #return #ignore for now, manually fix
                 else:
                     airport_info["Airport Identifier"] = ident.strip().replace("Ø","0")
                     airport_info["Airport Name"] = nme.strip()
+
+                if ident == "FNT":
+                    airport_info["Airport Name"] = "Bishop Intl" 
+
+                # Y98,GRAND MARAIS,No,No,Yes,No
+                # IRS,KIRSCH,No,No,No,No,No
+                # LWA,SOUTH HAVEN,No,No,No,No,No
+                # MI8,SAULT STE. MARIE,Yes,No,Yes,Yes,Yes
+                # MBS,SAGINAW,No,No,No,No,No
+                # PTK,OAKLAND COUNTY INT’L,Yes,No,No,No,Yes
+                # 1D2,CANTON-PLYMOUTH-METTETAL,Yes,No,No,No,Yes
+                # OGM,ONTONAGON,Yes,No,Yes,Yes,Yes
+                # 6Y5,TWO HEARTED,No,No,No,Yes,No
+                # 2E2,Sharpe's Strip,Yes,No,No,No
+
 
             for line in lines:
                 # Check for amenities
@@ -784,8 +800,16 @@ def parse_state(airport_data, state, directory_url, method, start_page, end_page
                 if i >= (total_pages - (total_pages - end_page) - 1):  # Check if it's time to break after processing pairs
                     break
         else:
+            #from PIL import Image
+            import pytesseract
             for i, page in enumerate(pdff.pages[start_page-1:], start=start_page):
-                text = page.extract_text()
+                
+                # if image recognition needed
+                save_image(pdf, i, "tmptesseract", imgDir)
+                img = Image.open(f"{imgDir}tmptesseract.png")
+                text = pytesseract.image_to_string(img)
+
+                #text = page.extract_text() #comment out if tesseract is used
                 if text:
                     airport_info = extract_page_info(i, text, state)
                     if airport_info:
@@ -862,12 +886,12 @@ def main():
     if not os.path.exists(airports_path):
         download_pdf(airports_url, airports_path)
 
-    parse_state(airport_data, "ga", "nilurl", "single", 24, 128)
+    parse_state(airport_data, "mi", "nilurl", "single", 30, 261)
     sys.exit(1)
 
+    parse_state(airport_data, "ga", "nilurl", "single", 24, 128)
     parse_state(airport_data, "ky", "nilurl", "pairs", 9, 124)
     parse_state(airport_data, "oh", "nilurl", "pairs", 22, 323)
-    parse_state(airport_data, "mi", "nilurl", "single", 30, 261) # todo
     parse_state(airport_data, "nv", "nilurl", "pairs", 12, 111)
     parse_state(airport_data, "ne", "nilurl", "single", 8, 86)
     parse_state(airport_data, "mo", "nilurl", "pairs", 17, 258)

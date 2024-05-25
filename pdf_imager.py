@@ -36,12 +36,12 @@ def save_combined_image(pdf_path, start_page, end_page, name, imgdir,degrees):
     print(f"saved {combined_image_filename}.png")
 
 def main():
-    pdfpath = "directories/or.pdf"
-    start_page = 22
-    end_page = 23
-    ident = "RDM"
-    imgdir = "images/or"
-    degrees = 270 # typically 0 unless you're special like oregon
+    pdfpath = "directories/mi.pdf"
+    start_page = 114
+    end_page = 114
+    ident = "Y98"
+    imgdir = "images/mi"
+    degrees = 0 # typically 0 unless you're special like oregon
     #save_image(pdfpath, pageNum, ident, imgdir)
     save_combined_image(pdfpath, start_page, end_page, ident, imgdir, degrees)
 

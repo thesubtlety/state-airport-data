@@ -1,5 +1,6 @@
 from PIL import Image
 import pytesseract
+import sys
 
 '''
 brew install tesseract
@@ -17,7 +18,7 @@ def extract_text_from_image(image_path):
     return text
 
 # Replace 'path_to_image.png' with your image file path
-image_path = 'images/or/4S1.png'
+image_path =  sys.argv[1] #'images/mi/BEH.png'
 extracted_text = extract_text_from_image(image_path)
 
 # Print the extracted text
