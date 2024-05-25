@@ -40,24 +40,24 @@ Airport data airports.csv from: https://ourairports.com/data/
 
 https://www.faa.gov/airports/resources/state_aviation
 
-- [-] Alabama (no useful state directory)
-- [-] Alaska (no useful state directory)
-- [-] [Arizona](https://azdot.gov/planning/airport-development/airports) (no useful state directory)
-- [ ] [Arkansas](https://fly.arkansas.gov/airport-info.html) (needs compiled...)
-- [-] [California](https://dot.ca.gov/programs/transportation-planning/division-of-transportation-planning/aeronautics) (no useful state directory)
+- [x] Alabama (no useful state directory)
+- [x] Alaska (no useful state directory)
+- [x] [Arizona](https://azdot.gov/planning/airport-development/airports) (no useful state directory)
+- [ ] [Arkansas](https://fly.arkansas.gov/airport-info.html) (individual links, needs compiled...)
+- [x] [California](https://dot.ca.gov/programs/transportation-planning/division-of-transportation-planning/aeronautics) (no useful state directory)
 - [ ] [Colorado](https://www.codot.gov/programs/aeronautics/Periodicals/colorado-airport-directory) (doubled pdf)
-- [-] [Connecticut](https://ctairports.org/airports/)  (no useful state directory)
+- [x] [Connecticut](https://ctairports.org/airports/)  (no useful state directory)
 - [ ] [Delaware](https://deldot.gov/Programs/airports/pdfs/de_airport_directory_2009_2010.pdf)
 - [x] [Florida](https://fdotwww.blob.core.windows.net/sitefinity/docs/default-source/topics/2019_directory.pdf)
 - [x] [Georgia](https://www.dot.ga.gov/InvestSmart/Aviation/AirportAid/AirportDirectory.pdf) (imperfect parsing)
-- [-] Hawaii (no useful state directory)
+- [x] Hawaii (no useful state directory)
 - [x] [Idaho](https://itd.idaho.gov/aero/)
-- [-] Illinois (no useful state directory)
-- [-] [Indiana](https://www.in.gov/indot/multimodal/aviation/indiana-public-use-airports/) (no useful state directory)
-- [-] [Iowa](https://iowadot.gov/aviation/airport-information) (no useful state directory)
+- [x] Illinois (no useful state directory)
+- [x] [Indiana](https://www.in.gov/indot/multimodal/aviation/indiana-public-use-airports/) (no useful state directory)
+- [x] [Iowa](https://iowadot.gov/aviation/airport-information) (no useful state directory)
 - [ ] [Kansas](https://www.ksdot.gov/Assets/wwwksdotorg/bureaus/divAviation/pdf/AirportDir.pdf) (doubled pdf)
 - [x] [Kentucky](https://transportation.ky.gov/aviation/documents/airport-directory.pdf)
-- [-] [Louisiana](https://wwwapps.dotd.la.gov/multimodal/aviation/airportdirectory.aspx) (no useful state directory)
+- [x] [Louisiana](https://wwwapps.dotd.la.gov/multimodal/aviation/airportdirectory.aspx) (no useful state directory)
 - [ ] Maine
 - [x] [Maryland](https://marylandregionalaviation.aero/publications/)
 - [ ] Massachusetts
@@ -75,15 +75,15 @@ https://www.faa.gov/airports/resources/state_aviation
 - [ ] North Carolina
 - [x] [North Dakota](https://aero.nd.gov/publications/)
 - [x] [Ohio](https://www.transportation.ohio.gov/programs/aviation/airports/airport-directory)
-- [-] [Oklahoma](https://oklahoma.gov/aerospace/airports/find-an-airport.html) (no pdf)
+- [x] [Oklahoma](https://oklahoma.gov/aerospace/airports/find-an-airport.html) (no pdf)
 - [x] [Oregon](https://www.oregon.gov/aviation/Pages/Reports.aspx)
-- [-] [Pennsylvania](https://www.penndot.pa.gov/TravelInPA/airports-pa/Pages/default.aspx)  (no useful state directory)
+- [x] [Pennsylvania](https://www.penndot.pa.gov/TravelInPA/airports-pa/Pages/default.aspx)  (no useful state directory)
 - [ ] Rhode Island
 - [ ] South Carolina
 - [x] [South Dakota](https://dot.sd.gov/transportation/aviation/airport-information)
 - [ ] Tennessee
 - [x] [Texas](https://ftp.dot.state.tx.us/pub/txdot-info/avn/airport-directory-list.pdf)
-- [-] Utah  (no useful state directory)
+- [x] Utah  (no useful state directory)
 - [ ] Vermont
 - [ ] Virginia
 - [x] [Washington](https://wsdot.wa.gov/engineering-standards/all-manuals-and-standards/manuals/airport-guide)
@@ -97,3 +97,5 @@ https://www.faa.gov/airports/resources/state_aviation
 - [CSVs, KMLs of US airports](https://hub.arcgis.com/documents/f74df2ed82ba4440a2059e8dc2ec9a5d/explore)
 - [SkyVector](https://skyvector.com/)
 - [VFR Map](https://vfrmap.com/)
+- [Fly2Lunch](http://www.fly2lunch.com/index.php)
+- [Pirep.io](https://pirep.io/) ***
