@@ -137,6 +137,74 @@ def extract_page_info(page, text, state):
                     airport_info["Bicycles"] = "Yes"
 
             return airport_info
+        case "ga":
+            lines = text.split('\n')
+            print(lines)
+            if lines:
+                ident, nme = "", ""
+                if re.findall('\s([A-Z0-9]{3})$', lines[0]) and len(lines[0])>8:
+                    ident,name = lines[0],lines[0]
+                else:
+                    ident,name = lines[-2],lines[-2]
+
+                if "-" in name:
+                    identmatch = re.search(r'[A-Z|^].+\s?(\w+)\s?-\s?(\w.*)\s(\w\w\w)', ident)
+                    if identmatch:
+                        ident = identmatch.group(3)
+                        nme = identmatch.group(2)
+                else:
+                    identmatch = re.search(r'[A-Z]\s(\w.*)\s(\w\w\w)$', ident)
+                    if identmatch:
+                        ident = identmatch.group(2)
+                        nme = identmatch.group(1)
+
+                if len(ident) > 4 or len(ident) < 3:
+                    print(f"Error parsing page {page} ({name})")
+                    #sys.exit(1)
+                    return #ignore for now, manually fix
+                else:
+                    airport_info["Airport Identifier"] = ident.strip().replace("Ø","0")
+                    airport_info["Airport Name"] = nme.strip()
+            
+                if ident == "LANI":
+                    airport_info["Airport Name"] = "Turner County"
+                    airport_info["Airport Identifier"] = "75J"
+                if ident == "013":
+                    airport_info["Airport Name"] = "Jimmy Carter Regional"
+                    airport_info["Airport Identifier"] = "ACJ"
+                if ident == "217":
+                    airport_info["Airport Name"] = "Heart of Georgia Regional"
+                    airport_info["Airport Identifier"] = "EZM"
+                if ident == "—51—":
+                    airport_info["Airport Name"] = "Griffin - Spalding County"
+                    airport_info["Airport Identifier"] = "6A2"
+                if ident == "ONI":
+                    airport_info["Airport Name"] = "Telfair-Wheeler"
+                    airport_info["Airport Identifier"] = "MQW"
+                if ident == ".R.R":
+                    airport_info["Airport Name"] = "Barrow County"
+                    airport_info["Airport Identifier"] = "WDR"  
+
+            print(nme)
+            print(ident)
+
+            for line in lines:
+                carmatch = re.search(r'courtesy car', line.lower()) 
+                if carmatch:
+                    airport_info["Courtesy Car"] = "Yes"
+
+                campmatch = re.search(r'camping', line.lower()) 
+                if campmatch:
+                    airport_info["Camping"] = "Yes"
+                
+                mealmatch = re.search(r'dining::.*(\(on-site\)|on field|\/.\d)', line.lower()) 
+                if mealmatch:
+                    airport_info["Meals"] = "Yes"
+                
+                if "bicycles" in line.lower() or "bikes" in line.lower():
+                    airport_info["Bicycles"] = "Yes"
+
+            return airport_info
         case "ky":
             lines = text.split('\n')
             print(lines)
@@ -732,7 +800,7 @@ def parse_state(airport_data, state, directory_url, method, start_page, end_page
     df = pd.DataFrame(airport_data)
     
     # Print the DataFrame
-    print(df)
+    print(df.to_string())
 
     df.to_csv(out, index=False)
     print(f"Data saved to {out}")
@@ -794,9 +862,10 @@ def main():
     if not os.path.exists(airports_path):
         download_pdf(airports_url, airports_path)
 
-    parse_state(airport_data, "ky", "nilurl", "pairs", 9, 124)
+    parse_state(airport_data, "ga", "nilurl", "single", 24, 128)
     sys.exit(1)
 
+    parse_state(airport_data, "ky", "nilurl", "pairs", 9, 124)
     parse_state(airport_data, "oh", "nilurl", "pairs", 22, 323)
     parse_state(airport_data, "mi", "nilurl", "single", 30, 261) # todo
     parse_state(airport_data, "nv", "nilurl", "pairs", 12, 111)

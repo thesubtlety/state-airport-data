@@ -49,14 +49,14 @@ https://www.faa.gov/airports/resources/state_aviation
 - [-] [Connecticut](https://ctairports.org/airports/)  (no useful state directory)
 - [ ] [Delaware](https://deldot.gov/Programs/airports/pdfs/de_airport_directory_2009_2010.pdf)
 - [x] [Florida](https://fdotwww.blob.core.windows.net/sitefinity/docs/default-source/topics/2019_directory.pdf)
-- [ ] [Georgia](https://www.dot.ga.gov/InvestSmart/Aviation/AirportAid/AirportDirectory.pdf)
+- [x] [Georgia](https://www.dot.ga.gov/InvestSmart/Aviation/AirportAid/AirportDirectory.pdf) (imperfect parsing)
 - [-] Hawaii (no useful state directory)
 - [x] [Idaho](https://itd.idaho.gov/aero/)
 - [-] Illinois (no useful state directory)
 - [-] [Indiana](https://www.in.gov/indot/multimodal/aviation/indiana-public-use-airports/) (no useful state directory)
 - [-] [Iowa](https://iowadot.gov/aviation/airport-information) (no useful state directory)
 - [ ] [Kansas](https://www.ksdot.gov/Assets/wwwksdotorg/bureaus/divAviation/pdf/AirportDir.pdf) (doubled pdf)
-- [ ] [Kentucky](https://transportation.ky.gov/aviation/documents/airport-directory.pdf)
+- [x] [Kentucky](https://transportation.ky.gov/aviation/documents/airport-directory.pdf)
 - [-] [Louisiana](https://wwwapps.dotd.la.gov/multimodal/aviation/airportdirectory.aspx) (no useful state directory)
 - [ ] Maine
 - [x] [Maryland](https://marylandregionalaviation.aero/publications/)
@@ -83,7 +83,7 @@ https://www.faa.gov/airports/resources/state_aviation
 - [x] [South Dakota](https://dot.sd.gov/transportation/aviation/airport-information)
 - [ ] Tennessee
 - [x] [Texas](https://ftp.dot.state.tx.us/pub/txdot-info/avn/airport-directory-list.pdf)
-- [ ] Utah  (no useful state directory)
+- [-] Utah  (no useful state directory)
 - [ ] Vermont
 - [ ] Virginia
 - [x] [Washington](https://wsdot.wa.gov/engineering-standards/all-manuals-and-standards/manuals/airport-guide)
