@@ -4,10 +4,6 @@ Parse state airport directories for attributes like Courtesy Car, Bicycles, Camp
 
 Data is as good as the state airport directories. Some notate cars, meals, bikes, and camping. Some do not.
 
-## To Dos
-
-- [ ] fix duplicates HRF, 32S, 1D8, PUW, RGK, 25u, s60, dls, ono, 
-
 ## Instructions
 
 1. Find the state airport directory
@@ -35,15 +31,19 @@ Airport data airports.csv from: https://ourairports.com/data/
 
 **Dislaimer**: data subject to error, do not use for navigation purposes, etc, etc
 
+## To Dos
+
+- [ ] fix duplicates HRF, 32S, 1D8, PUW, RGK, 25u, s60, dls, ono, 
+
 ----
 ### Directories
 
 https://www.faa.gov/airports/resources/state_aviation
 
-- [ ] Alabama (no useful state directory)
-- [ ] Alaska (no useful state directory)
+- [-] Alabama (no useful state directory)
+- [-] Alaska (no useful state directory)
 - [-] [Arizona](https://azdot.gov/planning/airport-development/airports) (no useful state directory)
-- [ ] Arkansas https://fly.arkansas.gov/airport-info.html
+- [ ] [Arkansas](https://fly.arkansas.gov/airport-info.html) (needs compiled...)
 - [-] [California](https://dot.ca.gov/programs/transportation-planning/division-of-transportation-planning/aeronautics) (no useful state directory)
 - [ ] [Colorado](https://www.codot.gov/programs/aeronautics/Periodicals/colorado-airport-directory) (doubled pdf)
 - [-] [Connecticut](https://ctairports.org/airports/)  (no useful state directory)
@@ -74,8 +74,8 @@ https://www.faa.gov/airports/resources/state_aviation
 - [ ] New York
 - [ ] North Carolina
 - [x] [North Dakota](https://aero.nd.gov/publications/)
-- [ ] [Ohio](https://www.transportation.ohio.gov/programs/aviation/airports/airport-directory)
-- [ ] [Oklahoma](https://oklahoma.gov/aerospace/airports/find-an-airport.html) (no pdf)
+- [x] [Ohio](https://www.transportation.ohio.gov/programs/aviation/airports/airport-directory)
+- [-] [Oklahoma](https://oklahoma.gov/aerospace/airports/find-an-airport.html) (no pdf)
 - [x] [Oregon](https://www.oregon.gov/aviation/Pages/Reports.aspx)
 - [-] [Pennsylvania](https://www.penndot.pa.gov/TravelInPA/airports-pa/Pages/default.aspx)  (no useful state directory)
 - [ ] Rhode Island

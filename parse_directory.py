@@ -137,6 +137,49 @@ def extract_page_info(page, text, state):
                     airport_info["Bicycles"] = "Yes"
 
             return airport_info
+        case "ky":
+            lines = text.split('\n')
+            print(lines)
+            if lines:
+                ident, nme = "", ""
+                ident = lines[-1]
+                name = lines[-1]
+
+                identmatch = re.search(r'\w+ (\w+) \d\d$', ident)
+                if identmatch:
+                    ident = identmatch.group(1)
+
+                namematch = re.search(r'(^\w.*) \w\w\w \d\d$', name)
+                if namematch:
+                    nme = namematch.group(1)
+
+                if len(ident) > 4 or len(ident) < 3:
+                    print(f"Error parsing page {page} ({name})")
+                    return #ignore for now, manually fix
+                else:
+                    airport_info["Airport Identifier"] = ident.strip().replace("Ø","0")
+                    airport_info["Airport Name"] = nme.strip()
+            
+            print(nme)
+            print(ident)
+
+            for line in lines:
+                carmatch = re.search(r'ccrreeww ccaarr:: yes', line.lower()) 
+                if carmatch:
+                    airport_info["Courtesy Car"] = "Yes"
+
+                campmatch = re.search(r'camping', line.lower()) 
+                if campmatch:
+                    airport_info["Camping"] = "Yes"
+                
+                mealmatch = re.search(r'ddiinniinngg::.*(\(on-site\)|on field|\/.\d)', line.lower()) 
+                if mealmatch:
+                    airport_info["Meals"] = "Yes"
+                
+                if "bicycles" in line.lower() or "bikes" in line.lower():
+                    airport_info["Bicycles"] = "Yes"
+
+            return airport_info
         case "md":
             lines = text.split('\n')
             print(lines)
@@ -751,10 +794,10 @@ def main():
     if not os.path.exists(airports_path):
         download_pdf(airports_url, airports_path)
 
-    parse_state(airport_data, "oh", "nilurl", "pairs", 22, 323)
-
+    parse_state(airport_data, "ky", "nilurl", "pairs", 9, 124)
     sys.exit(1)
 
+    parse_state(airport_data, "oh", "nilurl", "pairs", 22, 323)
     parse_state(airport_data, "mi", "nilurl", "single", 30, 261) # todo
     parse_state(airport_data, "nv", "nilurl", "pairs", 12, 111)
     parse_state(airport_data, "ne", "nilurl", "single", 8, 86)
