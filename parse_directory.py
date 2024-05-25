@@ -174,6 +174,49 @@ def extract_page_info(page, text, state):
                     airport_info["Bicycles"] = "Yes"
 
             return airport_info
+        case "mi":
+            lines = text.split('\n')
+            print(lines)
+            if lines:
+                ident, nme = "", ""
+                name = lines[0]
+                identmatch = re.search(r'[^,](\w+\s?){1,3} \((\w+)\)', name)
+                if identmatch:
+                    ident = identmatch.group(2)
+
+                namematch = re.search(r'[^,]((\w+\s?){1,3}) \(\w+\)', name)
+                if namematch:
+                    nme = namematch.group(1)
+
+                if len(ident) > 4 or len(ident) < 3:
+                    print(f"Error parsing page {page} ({name})")
+                    return #ignore for now, manually fix
+                else:
+                    airport_info["Airport Identifier"] = ident.strip().replace("Ø","0")
+                    airport_info["Airport Name"] = nme.strip()
+
+            for line in lines:
+                # Check for amenities
+                # 27 TRANSP (TRANSPORTATION), CC == Courtesy car
+                # RON (REMAIN OVER NIGHT)
+                # TRNSP: CC, Rntl car
+                
+                carmatch = re.search(r'trnsp: cc|rntl car|courtesy car]', line.lower()) 
+                if carmatch:
+                    airport_info["Courtesy Car"] = "Yes"
+
+                campmatch = re.search(r'camping', line.lower()) 
+                if campmatch:
+                    airport_info["Camping"] = "Yes"
+                
+                mealmatch = re.search(r'meals: in town, [0.5|0.75|1.0]|meals: adj', line.lower()) 
+                if mealmatch:
+                    airport_info["Meals"] = "Yes"
+                
+                if "bicycles" in line.lower() or "bikes" in line.lower():
+                    airport_info["Bicycles"] = "Yes"
+
+            return airport_info
         case "mo":
             lines = text.split('\n')
             print(lines)
@@ -295,6 +338,47 @@ def extract_page_info(page, text, state):
             
             if airport_info["Airport Identifier"] == "8S1":
                 airport_info["Courtesy Car"] = "Yes"
+
+            return airport_info      
+        case "oh":
+            lines = text.split('\n')
+            print(lines)
+            if lines:
+                ident, nme = "", ""
+                ident = lines[0]
+                name = lines[1]
+
+                identmatch = re.search(r'\w+ (\w+)$', ident)
+                if identmatch:
+                    ident = identmatch.group(1)
+
+                # namematch = re.search(r'[^,]((\w+\s?){1,3}) \(\w+\)', name)
+                # if namematch:
+                #     nme = namematch.group(1)
+
+                if len(ident) > 4 or len(ident) < 3:
+                    print(f"Error parsing page {page} ({name})")
+                    return #ignore for now, manually fix
+                else:
+                    airport_info["Airport Identifier"] = ident.strip().replace("Ø","0")
+                    airport_info["Airport Name"] = nme.strip()
+
+            for line in lines:
+                
+                carmatch = re.search(r'courtesy car|courtesy transportation', line.lower()) 
+                if carmatch:
+                    airport_info["Courtesy Car"] = "Yes"
+
+                campmatch = re.search(r'camping', line.lower()) 
+                if campmatch:
+                    airport_info["Camping"] = "Yes"
+                
+                mealmatch = re.search(r'restaurant within 2 miles', line.lower()) 
+                if mealmatch:
+                    airport_info["Meals"] = "Yes"
+                
+                if "bicycles" in line.lower() or "bikes" in line.lower():
+                    airport_info["Bicycles"] = "Yes"
 
             return airport_info
         case "ne":
@@ -667,9 +751,12 @@ def main():
     if not os.path.exists(airports_path):
         download_pdf(airports_url, airports_path)
 
-    parse_state(airport_data, "nv", "nilurl", "pairs", 12, 111)
+    parse_state(airport_data, "oh", "nilurl", "pairs", 22, 323)
+
     sys.exit(1)
 
+    parse_state(airport_data, "mi", "nilurl", "single", 30, 261) # todo
+    parse_state(airport_data, "nv", "nilurl", "pairs", 12, 111)
     parse_state(airport_data, "ne", "nilurl", "single", 8, 86)
     parse_state(airport_data, "mo", "nilurl", "pairs", 17, 258)
     parse_state(airport_data, "id", id_url, "single", 38, 182)

@@ -4,18 +4,9 @@ Parse state airport directories for attributes like Courtesy Car, Bicycles, Camp
 
 Data is as good as the state airport directories. Some notate cars, meals, bikes, and camping. Some do not.
 
-States without useful data for this project
-- Washington
-- Florida
-
-
-Oregon parsed with ChatGPT, data suspect
-
 ## To Dos
 
-- [ ] Automate data fixes
-- [ ] show both pages for wyoming, idaho (see southdakota)
-- [ ] duplicates HRF, 32S, 1D8, PUW, RGK, 25u, s60, dls, ono, 
+- [ ] fix duplicates HRF, 32S, 1D8, PUW, RGK, 25u, s60, dls, ono, 
 
 ## Instructions
 
@@ -40,9 +31,7 @@ optipng images/*
 5. Then copy `combined_data.json` to `airstripmap/public/data.json`
 6. And copy over the images in `images/state` to `airstripmap/public/images/`
 
-
 Airport data airports.csv from: https://ourairports.com/data/ 
-
 
 **Dislaimer**: data subject to error, do not use for navigation purposes, etc, etc
 
@@ -53,26 +42,26 @@ https://www.faa.gov/airports/resources/state_aviation
 
 - [ ] Alabama (no useful state directory)
 - [ ] Alaska (no useful state directory)
-- [ ] [Arizona](https://azdot.gov/planning/airport-development/airports) (no useful state directory)
+- [-] [Arizona](https://azdot.gov/planning/airport-development/airports) (no useful state directory)
 - [ ] Arkansas https://fly.arkansas.gov/airport-info.html
-- [ ] [California](https://dot.ca.gov/programs/transportation-planning/division-of-transportation-planning/aeronautics) (no useful state directory)
+- [-] [California](https://dot.ca.gov/programs/transportation-planning/division-of-transportation-planning/aeronautics) (no useful state directory)
 - [ ] [Colorado](https://www.codot.gov/programs/aeronautics/Periodicals/colorado-airport-directory) (doubled pdf)
-- [ ] [Connecticut](https://ctairports.org/airports/)  (no useful state directory)
+- [-] [Connecticut](https://ctairports.org/airports/)  (no useful state directory)
 - [ ] [Delaware](https://deldot.gov/Programs/airports/pdfs/de_airport_directory_2009_2010.pdf)
 - [x] [Florida](https://fdotwww.blob.core.windows.net/sitefinity/docs/default-source/topics/2019_directory.pdf)
 - [ ] [Georgia](https://www.dot.ga.gov/InvestSmart/Aviation/AirportAid/AirportDirectory.pdf)
-- [ ] Hawaii (no useful state directory)
+- [-] Hawaii (no useful state directory)
 - [x] [Idaho](https://itd.idaho.gov/aero/)
-- [ ] Illinois (no useful state directory)
-- [ ] [Indiana](https://www.in.gov/indot/multimodal/aviation/indiana-public-use-airports/) (no useful state directory)
-- [ ] [Iowa](https://iowadot.gov/aviation/airport-information) (no useful state directory)
+- [-] Illinois (no useful state directory)
+- [-] [Indiana](https://www.in.gov/indot/multimodal/aviation/indiana-public-use-airports/) (no useful state directory)
+- [-] [Iowa](https://iowadot.gov/aviation/airport-information) (no useful state directory)
 - [ ] [Kansas](https://www.ksdot.gov/Assets/wwwksdotorg/bureaus/divAviation/pdf/AirportDir.pdf) (doubled pdf)
 - [ ] [Kentucky](https://transportation.ky.gov/aviation/documents/airport-directory.pdf)
-- [ ] [Louisiana](https://wwwapps.dotd.la.gov/multimodal/aviation/airportdirectory.aspx) (no useful state directory)
+- [-] [Louisiana](https://wwwapps.dotd.la.gov/multimodal/aviation/airportdirectory.aspx) (no useful state directory)
 - [ ] Maine
 - [x] [Maryland](https://marylandregionalaviation.aero/publications/)
 - [ ] Massachusetts
-- [ ] Michigan
+- [ ] [Michigan](https://www.michigan.gov/mdot/travel/mobility/aeronautics/airports) (pdf broken - needs image recognized)
 - [x] [Minnesota](https://www.dot.state.mn.us/aero/airportdirectory/index.html)
 - [ ] Mississippi
 - [x] [Missouri](https://www.modot.org/aviation-publications)
@@ -88,7 +77,7 @@ https://www.faa.gov/airports/resources/state_aviation
 - [ ] [Ohio](https://www.transportation.ohio.gov/programs/aviation/airports/airport-directory)
 - [ ] [Oklahoma](https://oklahoma.gov/aerospace/airports/find-an-airport.html) (no pdf)
 - [x] [Oregon](https://www.oregon.gov/aviation/Pages/Reports.aspx)
-- [ ] [Pennsylvania](https://www.penndot.pa.gov/TravelInPA/airports-pa/Pages/default.aspx)  (no useful state directory)
+- [-] [Pennsylvania](https://www.penndot.pa.gov/TravelInPA/airports-pa/Pages/default.aspx)  (no useful state directory)
 - [ ] Rhode Island
 - [ ] South Carolina
 - [x] [South Dakota](https://dot.sd.gov/transportation/aviation/airport-information)
