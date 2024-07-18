@@ -8,7 +8,7 @@ Data is as good as the state airport directories. Some notate cars, meals, bikes
 
 1. Find the state airport directory
 2. Copy paste a `parse_directory.py` `parse_state` function and update the state info and pdf location
-3. Run the below commands. You'll need to play around with the text extraction
+3. Run the below commands. You'll need to play around with the text extraction (consider tesseract if needed, uncomment in `parse_state` function)
 4. Make any adjustments needed (and update at the bottom of the `parse_directory` file for future runs. Replace/update in the `airport_info_state.csv` file.)
 
 ```sh
