@@ -7,16 +7,16 @@ Data is as good as the state airport directories. Some notate cars, meals, bikes
 ## Instructions
 
 1. Find the state airport directory
-2. Copy paste a `get_state_data.py` file and update the state info and pdf location
+2. Copy paste a `parse_directory.py` `parse_state` function and update the state info and pdf location
 3. Run the below commands. You'll need to play around with the text extraction
-4. Make any adjustments needed (and update at the bottom of the `get_state_data` file for future runs. Replace/update in the `airport_info_state.csv` file.)
+4. Make any adjustments needed (and update at the bottom of the `parse_directory` file for future runs. Replace/update in the `airport_info_state.csv` file.)
 
 ```sh
 pip install -r requirements.txt
 brew install poppler
 brew install optipng
 
-python3 get_state_data.py
+python3 parse_directory.py
 python3 data_to_json.py <statecode e.g. mt>
 python3 combined_data.py data/data*.json && cat data/combined_data.json | pbcopy
 #For size
@@ -58,20 +58,20 @@ https://www.faa.gov/airports/resources/state_aviation
 - [ ] [Kansas](https://www.ksdot.gov/Assets/wwwksdotorg/bureaus/divAviation/pdf/AirportDir.pdf) (doubled pdf)
 - [x] [Kentucky](https://transportation.ky.gov/aviation/documents/airport-directory.pdf)
 - [x] [Louisiana](https://wwwapps.dotd.la.gov/multimodal/aviation/airportdirectory.aspx) (no useful state directory)
-- [ ] Maine
+- [x] [Maine](https://www.maine.gov/mdot/aviation/) (no useful state directory)
 - [x] [Maryland](https://marylandregionalaviation.aero/publications/)
-- [ ] Massachusetts
+- [x] [Massachusetts](https://www.mass.gov/public-use-airports/locations) (no useful state directory)
 - [x] [Michigan](https://www.michigan.gov/mdot/travel/mobility/aeronautics/airports)
 - [x] [Minnesota](https://www.dot.state.mn.us/aero/airportdirectory/index.html)
-- [ ] Mississippi
+- [x] Mississippi  (no useful state directory)
 - [x] [Missouri](https://www.modot.org/aviation-publications)
 - [x] [Montana](https://www.mdt.mt.gov/aviation/airports.aspx)
 - [x] [Nebraska](https://govdocs.nebraska.gov/epubs/A4000/D001.html)
 - [x] [Nevada](https://www.dot.nv.gov/mobility/aviation/airport-directory)
-- [ ] New Hampshire
+- [ ] [New Hampshire](https://www.dot.nh.gov/about-nh-dot/divisions-bureaus-districts/aeronautics/airport-directory) (individual links)
 - [ ] [New Jersey](https://www.nj.gov/transportation/freight/aviation/documents/NJDOTAirportDirectory.pdf)
 - [ ] New Mexico
-- [ ] New York
+- [ ] [New York](https://www.dot.ny.gov/divisions/operating/opdm/aviation/repository/air_dir/toc.html) (individual pdf links)
 - [ ] North Carolina
 - [x] [North Dakota](https://aero.nd.gov/publications/)
 - [x] [Ohio](https://www.transportation.ohio.gov/programs/aviation/airports/airport-directory)
@@ -81,11 +81,11 @@ https://www.faa.gov/airports/resources/state_aviation
 - [ ] Rhode Island
 - [ ] South Carolina
 - [x] [South Dakota](https://dot.sd.gov/transportation/aviation/airport-information)
-- [ ] Tennessee
+- [ ] [Tennessee](https://www.tdot.tn.gov/PublicDocuments/aeronautics/Airport-directory.pdf)
 - [x] [Texas](https://ftp.dot.state.tx.us/pub/txdot-info/avn/airport-directory-list.pdf)
 - [x] Utah  (no useful state directory)
 - [ ] Vermont
-- [ ] Virginia
+- [x] [Virginia](https://doav.virginia.gov/airport-directory/) no useful state directory
 - [x] [Washington](https://wsdot.wa.gov/engineering-standards/all-manuals-and-standards/manuals/airport-guide)
 - [ ] West Virginia
 - [x] [Wisconsin](https://wisconsindot.gov/Pages/travel/air/airport-info/arptdir-city.aspx)

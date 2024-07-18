@@ -548,6 +548,47 @@ def extract_page_info(page, text, state):
                     airport_info["Bicycles"] = "Yes"
 
             return airport_info
+        case "nj":
+            lines = text.split('\n')
+            ident, nme = "", ""
+            print(lines)
+            if lines:
+                # Assuming one of these lines contains the airport name
+                name = ",".join(lines[0:10])
+                identmatch = re.search(r'\((.*?)\)', name)
+                if identmatch:
+                    ident = identmatch.group(1)
+                # else:
+                #     ident = name
+
+                namematch = re.search(r'\b([A-Z0-9- ]+)\b', lines[0])
+                if namematch:
+                    nme = namematch.group(1)
+                    
+                print(ident)
+                print(nme)
+
+                if len(ident) > 4 or len(ident) < 3:
+                    print(f"Error parsing page {page} ({name})")
+                    #return #ignore for now, manually fix
+                else:
+                    airport_info["Airport Identifier"] = ident.strip().replace("Ø","0")
+                    airport_info["Airport Identifier"] = ident.strip().replace("@","0")
+                    airport_info["Airport Name"] = nme.strip()
+            
+            for line in lines:
+                # Check for amenities
+                if "rental" in line.lower() or "courtesy" in line.lower() or "crew car" in line.lower() or "transportation" in line.lower():
+                    airport_info["Courtesy Car"] = "Yes"
+                if "camping" in line.lower() or "cabins" in line.lower():
+                    airport_info["Camping"] = "Yes"
+                mealmatch = re.search(r'restaurant', line) 
+                if mealmatch:
+                    airport_info["Meals"] = "Yes"
+                if "bicycles" in line.lower() or "bikes" in line.lower():
+                    airport_info["Bicycles"] = "Yes"
+
+            return airport_info
         case "nv":
             lines = text.split('\n')
             print(lines)
@@ -692,6 +733,47 @@ def extract_page_info(page, text, state):
                     airport_info["Bicycles"] = "Yes"
 
             return airport_info
+        case "tn":
+                lines = text.split('\n')
+                ident, nme = "", ""
+                print(lines)
+                if lines:
+                    # Assuming one of these lines contains the airport name
+                    name = lines[0]
+                    identmatch = re.search(r'^(.*?)\-([A-Z0-9@]{2,3}) .*? \- (\d+)$', name)
+                    if identmatch:
+                        ident = identmatch.group(2)
+                    else:
+                        ident = name
+
+                    namematch = re.search(r'^(.*?)\-([A-Z0-9@]{2,3}) .*? \- (\d+)$', name)
+                    if namematch:
+                        nme = namematch.group(1)
+                        
+                    print(ident)
+                    print(nme)
+
+                    if len(ident) > 4 or len(ident) < 3:
+                        print(f"Error parsing page {page} ({name})")
+                        #return #ignore for now, manually fix
+                    else:
+                        airport_info["Airport Identifier"] = ident.strip().replace("Ø","0")
+                        airport_info["Airport Identifier"] = ident.strip().replace("@","0")
+                        airport_info["Airport Name"] = nme.strip()
+                
+                for line in lines:
+                    # Check for amenities
+                    if "rental" in line.lower() or "courtesy" in line.lower() or "crew car" in line.lower() or "transportation" in line.lower():
+                        airport_info["Courtesy Car"] = "Yes"
+                    if "camping" in line.lower() or "cabins" in line.lower():
+                        airport_info["Camping"] = "Yes"
+                    mealmatch = re.search(r'restaurant', line) 
+                    if mealmatch:
+                        airport_info["Meals"] = "Yes"
+                    if "bicycles" in line.lower() or "bikes" in line.lower():
+                        airport_info["Bicycles"] = "Yes"
+
+                return airport_info
         case "tx":
                 lines = text.split('\n')
                 print(lines)
@@ -809,7 +891,7 @@ def parse_state(airport_data, state, directory_url, method, start_page, end_page
                 img = Image.open(f"{imgDir}tmptesseract.png")
                 text = pytesseract.image_to_string(img)
 
-                #text = page.extract_text() #comment out if tesseract is used
+                text = page.extract_text() #comment if you need to use tesseract image extraction
                 if text:
                     airport_info = extract_page_info(i, text, state)
                     if airport_info:
@@ -886,9 +968,11 @@ def main():
     if not os.path.exists(airports_path):
         download_pdf(airports_url, airports_path)
 
-    parse_state(airport_data, "mi", "nilurl", "single", 30, 261)
+    parse_state(airport_data, "tn", "nilurl", "single", 11, 89)   #todo
     sys.exit(1)
 
+    parse_state(airport_data, "nj", "nilurl", "single", 18, 58)
+    parse_state(airport_data, "mi", "nilurl", "single", 30, 261)
     parse_state(airport_data, "ga", "nilurl", "single", 24, 128)
     parse_state(airport_data, "ky", "nilurl", "pairs", 9, 124)
     parse_state(airport_data, "oh", "nilurl", "pairs", 22, 323)
