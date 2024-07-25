@@ -37,6 +37,47 @@ def extract_page_info(page, text, state):
     #pdb.set_trace()
 
     match state:
+        case "co":
+                lines = text.split('\n')
+                ident, nme = "", ""
+                print(lines)
+                if lines:
+                    # Assuming one of these lines contains the airport name
+                    name = lines[0]
+                    identmatch = re.search(r'[A-Z-\'. ].*\ ([A-Z0-9Ø]{3})\ (.*)\ [A-Z-\'. ]', name)
+                    if identmatch:
+                        ident = identmatch.group(1)
+                    else:
+                        ident = name
+
+                    namematch = re.search(r'[A-Z-\'. ].*\ ([A-Z0-9Ø]{3})\ (.*)\ [A-Z-\'. ]', name)
+                    if namematch:
+                        nme = namematch.group(2)
+                        
+                    print(ident)
+                    print(nme)
+
+                    if len(ident) > 4 or len(ident) < 3:
+                        print(f"Error parsing page {page} ({name})")
+                        #return #ignore for now, manually fix
+                    else:
+                        airport_info["Airport Identifier"] = ident.strip().replace("Ø","0")
+                        airport_info["Airport Identifier"] = ident.strip().replace("@","0")
+                        airport_info["Airport Name"] = nme.strip()
+                
+                for line in lines:
+                    # Check for amenities
+                    if "rental" in line.lower() or "courtesy" in line.lower() or "crew car" in line.lower() or "transportation" in line.lower():
+                        airport_info["Courtesy Car"] = "Yes"
+                    if "camping" in line.lower() or "campsite" in line.lower():
+                        airport_info["Camping"] = "Yes"
+                    mealmatch = re.search(r'on airport|\b1 mile', line) 
+                    if mealmatch:
+                        airport_info["Meals"] = "Yes"
+                    if "bicycles" in line.lower() or "bikes" in line.lower():
+                        airport_info["Bicycles"] = "Yes"
+
+                return airport_info
         case "id":
             lines = text.split('\n')
             print(lines)
@@ -968,9 +1009,10 @@ def main():
     if not os.path.exists(airports_path):
         download_pdf(airports_url, airports_path)
 
-    parse_state(airport_data, "tn", "nilurl", "single", 11, 89)   #todo
+    parse_state(airport_data, "co", "nilurl", "single", 24, 99)
     sys.exit(1)
 
+    parse_state(airport_data, "tn", "nilurl", "single", 11, 89)
     parse_state(airport_data, "nj", "nilurl", "single", 18, 58)
     parse_state(airport_data, "mi", "nilurl", "single", 30, 261)
     parse_state(airport_data, "ga", "nilurl", "single", 24, 128)

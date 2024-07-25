@@ -45,7 +45,7 @@ https://www.faa.gov/airports/resources/state_aviation
 - [x] [Arizona](https://azdot.gov/planning/airport-development/airports) (no useful state directory)
 - [ ] [Arkansas](https://fly.arkansas.gov/airport-info.html) (individual links, needs compiled...)
 - [x] [California](https://dot.ca.gov/programs/transportation-planning/division-of-transportation-planning/aeronautics) (no useful state directory)
-- [ ] [Colorado](https://www.codot.gov/programs/aeronautics/Periodicals/colorado-airport-directory) (doubled pdf)
+- [x] [Colorado](https://www.codot.gov/programs/aeronautics/Periodicals/colorado-airport-directory)
 - [x] [Connecticut](https://ctairports.org/airports/)  (no useful state directory)
 - [ ] [Delaware](https://deldot.gov/Programs/airports/pdfs/de_airport_directory_2009_2010.pdf)
 - [x] [Florida](https://fdotwww.blob.core.windows.net/sitefinity/docs/default-source/topics/2019_directory.pdf)
@@ -69,22 +69,22 @@ https://www.faa.gov/airports/resources/state_aviation
 - [x] [Nebraska](https://govdocs.nebraska.gov/epubs/A4000/D001.html)
 - [x] [Nevada](https://www.dot.nv.gov/mobility/aviation/airport-directory)
 - [ ] [New Hampshire](https://www.dot.nh.gov/about-nh-dot/divisions-bureaus-districts/aeronautics/airport-directory) (individual links)
-- [ ] [New Jersey](https://www.nj.gov/transportation/freight/aviation/documents/NJDOTAirportDirectory.pdf)
-- [ ] New Mexico
+- [x] [New Jersey](https://www.nj.gov/transportation/freight/aviation/documents/NJDOTAirportDirectory.pdf)
+- [ ] New Mexico [(none published, but kind of)](https://realfilef260a66b364d453e91ff9b3fedd494dc.s3.amazonaws.com/03b30a00-9999-46c6-92b6-8719de594652?AWSAccessKeyId=AKIAJBKPT2UF7EZ6B7YA&Expires=1721493497&Signature=z8VM%2Fhcyv2q1t3UQ4tQOce%2Bf8ak%3D&response-content-disposition=inline%3B%20filename%3D%22New%20Mexico%20Aviation%202022%20Technical%20Report.pdf%22&response-content-type=application%2Fpdf) and [here](https://idea.appliedpavement.com/hosting/newmexico/#path=2)
 - [ ] [New York](https://www.dot.ny.gov/divisions/operating/opdm/aviation/repository/air_dir/toc.html) (individual pdf links)
-- [ ] North Carolina
+- [ ] [North Carolina](https://www.ncdot.gov/divisions/aviation/Documents/nc-airport-guide.pdf)
 - [x] [North Dakota](https://aero.nd.gov/publications/)
 - [x] [Ohio](https://www.transportation.ohio.gov/programs/aviation/airports/airport-directory)
 - [x] [Oklahoma](https://oklahoma.gov/aerospace/airports/find-an-airport.html) (no pdf)
 - [x] [Oregon](https://www.oregon.gov/aviation/Pages/Reports.aspx)
 - [x] [Pennsylvania](https://www.penndot.pa.gov/TravelInPA/airports-pa/Pages/default.aspx)  (no useful state directory)
 - [ ] Rhode Island
-- [ ] South Carolina
+- [ ] [South Carolina](https://aeronautics.sc.gov/sites/default/files/2024-02/SC%20Aeronautics%20Pilots%20Book%202024%20%20PROOF3%20%281%29.pdf)
 - [x] [South Dakota](https://dot.sd.gov/transportation/aviation/airport-information)
-- [ ] [Tennessee](https://www.tdot.tn.gov/PublicDocuments/aeronautics/Airport-directory.pdf)
+- [x] [Tennessee](https://www.tdot.tn.gov/PublicDocuments/aeronautics/Airport-directory.pdf)
 - [x] [Texas](https://ftp.dot.state.tx.us/pub/txdot-info/avn/airport-directory-list.pdf)
 - [x] Utah  (no useful state directory)
-- [ ] Vermont
+- [ ] [Vermont](https://vtrans.vermont.gov/sites/aot/files/aviation/VASP_FINAL_2021-08-18.pdf)
 - [x] [Virginia](https://doav.virginia.gov/airport-directory/) no useful state directory
 - [x] [Washington](https://wsdot.wa.gov/engineering-standards/all-manuals-and-standards/manuals/airport-guide)
 - [ ] West Virginia
