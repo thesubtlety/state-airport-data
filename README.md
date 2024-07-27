@@ -84,7 +84,7 @@ https://www.faa.gov/airports/resources/state_aviation
 - [x] [Tennessee](https://www.tdot.tn.gov/PublicDocuments/aeronautics/Airport-directory.pdf)
 - [x] [Texas](https://ftp.dot.state.tx.us/pub/txdot-info/avn/airport-directory-list.pdf)
 - [x] Utah  (no useful state directory)
-- [ ] [Vermont](https://vtrans.vermont.gov/sites/aot/files/aviation/VASP_FINAL_2021-08-18.pdf)
+- [x] [Vermont](https://vtrans.vermont.gov/sites/aot/files/aviation/VASP_FINAL_2021-08-18.pdf)
 - [x] [Virginia](https://doav.virginia.gov/airport-directory/) no useful state directory
 - [x] [Washington](https://wsdot.wa.gov/engineering-standards/all-manuals-and-standards/manuals/airport-guide)
 - [ ] West Virginia

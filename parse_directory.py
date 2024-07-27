@@ -892,9 +892,49 @@ def extract_page_info(page, text, state):
                     airport_info["Bicycles"] = "Yes"
 
             return airport_info
+        case "vt":
+                lines = text.split('\n')
+                ident, nme = "", ""
+                print(lines)
+                if lines:
+                    for line in lines:
+                        # Assuming one of these lines contains the airport name
+                        #name = lines[0]
+                        identmatch = re.search(r'\b([A-Za-z\s\.]+Airport)\s\(([A-Z0-9]{3})\)', line)
+                        if identmatch:
+                            ident = identmatch.group(2)
+
+                        namematch = re.search(r'\b([A-Za-z\s\.]+Airport)\s\(([A-Z0-9]{3})\)', line)
+                        if namematch:
+                            nme = namematch.group(1)
+                        
+                    print(ident)
+                    print(nme)
+
+                    if len(ident) > 4 or len(ident) < 3:
+                        print(f"Error parsing page {page} ({lines[1]})")
+                        #return #ignore for now, manually fix
+                    else:
+                        airport_info["Airport Identifier"] = ident.strip().replace("Ø","0")
+                        airport_info["Airport Identifier"] = ident.strip().replace("@","0")
+                        airport_info["Airport Name"] = nme.strip()
+                
+                for line in lines:
+                    # Check for amenities
+                    if "courtesy" in line.lower() or "crew car" in line.lower():
+                        airport_info["Courtesy Car"] = "Yes"
+                    if "camping" in line.lower() or "campsite" in line.lower():
+                        airport_info["Camping"] = "Yes"
+                    mealmatch = re.search(r'on airport|\b1 mile', line) 
+                    if mealmatch:
+                        airport_info["Meals"] = "Yes"
+                    if "bicycles" in line.lower() or "bikes" in line.lower():
+                        airport_info["Bicycles"] = "Yes"
+
+                return airport_info            
         case _:
             return "Not implemented"  
-        
+
 def parse_state(airport_data, state, directory_url, method, start_page, end_page):
     pdf = f'directories/{state}.pdf'
     out = f'data/airport_info_{state}.csv'
@@ -918,6 +958,7 @@ def parse_state(airport_data, state, directory_url, method, start_page, end_page
                         if airport_info:
                             airport_data.append(airport_info)
                             id = airport_info.get("Airport Identifier")
+                            id = id.replace("Ø","0")
                             if id:
                                 save_combined_image(pdf, i + 1, i + 2, id, imgDir)  # Adjust indices as necessary
                 if i >= (total_pages - (total_pages - end_page) - 1):  # Check if it's time to break after processing pairs
@@ -938,11 +979,74 @@ def parse_state(airport_data, state, directory_url, method, start_page, end_page
                     if airport_info:
                         airport_data.append(airport_info)
                         id = airport_info.get("Airport Identifier")
+                        id = id.replace("Ø","0")
                         if id: save_image(pdf, i, id, imgDir)
                 if i > (total_pages - (total_pages-end_page)):
                     break
             
+    # Convert the list of dictionaries into a pandas DataFrame
+    df = pd.DataFrame(airport_data)
+    
+    # Print the DataFrame
+    print(df.to_string())
 
+    df.to_csv(out, index=False)
+    print(f"Data saved to {out}")
+
+def parse_state_custom(airport_data, state, directory_url, page_ranges, individual_pages):
+    import os
+    import pdfplumber
+    from PIL import Image
+    import pytesseract
+
+    pdf = f'directories/{state}.pdf'
+    out = f'data/airport_info_{state}.csv'
+    imgDir = f'images/{state}/'
+
+    # Download PDF if not present
+    if not os.path.exists(pdf):
+        download_pdf(directory_url, pdf)
+
+    with pdfplumber.open(pdf) as pdff:
+        total_pages = len(pdff.pages)
+        print(f"Total pages: {total_pages}")
+
+        # Process pairs of pages
+        for start_page, end_page in page_ranges:
+            for i in range(start_page - 1, end_page, 2):  # step by 2 for pairs
+                current_page_text = pdff.pages[i].extract_text() if pdff.pages[i] else ""
+                next_page_text = pdff.pages[i + 1].extract_text() if i + 1 < len(pdff.pages) else ""  # Handle the last page case
+                text = current_page_text + " " + next_page_text
+                if text:
+                    airport_info = extract_page_info(i, text, state)
+                    if airport_info:
+                        airport_data.append(airport_info)
+                        id = airport_info.get("Airport Identifier")
+                        id = id.replace("Ø", "0")
+                        if id:
+                            save_combined_image(pdf, i + 1, i + 2, id, imgDir)  # Adjust indices as necessary
+                if i >= end_page - 1:  # Check if it's time to break after processing pairs
+                    break
+
+        # Process individual pages
+        for i in individual_pages:
+            page = pdff.pages[i - 1]
+
+            # if image recognition needed
+            save_image(pdf, i, "tmptesseract", imgDir)
+            img = Image.open(f"{imgDir}tmptesseract.png")
+            text = pytesseract.image_to_string(img)
+
+            text = page.extract_text()  # Comment if you need to use tesseract image extraction
+            if text:
+                airport_info = extract_page_info(i, text, state)
+                if airport_info:
+                    airport_data.append(airport_info)
+                    id = airport_info.get("Airport Identifier")
+                    id = id.replace("Ø", "0")
+                    if id:
+                        save_image(pdf, i, id, imgDir)
+    
     # Convert the list of dictionaries into a pandas DataFrame
     df = pd.DataFrame(airport_data)
     
@@ -1009,9 +1113,10 @@ def main():
     if not os.path.exists(airports_path):
         download_pdf(airports_url, airports_path)
 
-    parse_state(airport_data, "co", "nilurl", "single", 24, 99)
+    parse_state_custom(airport_data, "vt", "nilurl", [(56, 63), (65, 74),(79,82)], [64,75,76,77,78])
     sys.exit(1)
 
+    parse_state(airport_data, "co", "nilurl", "single", 24, 99)
     parse_state(airport_data, "tn", "nilurl", "single", 11, 89)
     parse_state(airport_data, "nj", "nilurl", "single", 18, 58)
     parse_state(airport_data, "mi", "nilurl", "single", 30, 261)
