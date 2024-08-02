@@ -47,7 +47,7 @@ https://www.faa.gov/airports/resources/state_aviation
 - [x] [California](https://dot.ca.gov/programs/transportation-planning/division-of-transportation-planning/aeronautics) (no useful state directory)
 - [x] [Colorado](https://www.codot.gov/programs/aeronautics/Periodicals/colorado-airport-directory)
 - [x] [Connecticut](https://ctairports.org/airports/)  (no useful state directory)
-- [ ] [Delaware](https://deldot.gov/Programs/airports/pdfs/de_airport_directory_2009_2010.pdf)
+- [x] [Delaware](https://deldot.gov/Programs/airports/pdfs/de_airport_directory_2009_2010.pdf)
 - [x] [Florida](https://fdotwww.blob.core.windows.net/sitefinity/docs/default-source/topics/2019_directory.pdf)
 - [x] [Georgia](https://www.dot.ga.gov/InvestSmart/Aviation/AirportAid/AirportDirectory.pdf) (imperfect parsing)
 - [x] Hawaii (no useful state directory)
