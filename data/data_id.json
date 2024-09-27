@@ -910,7 +910,7 @@
       "elevation": "3002",
       "courtesy_car": false,
       "bicycles": false,
-      "camping": false,
+      "camping": true,
       "meals": false
     },
     {
@@ -1196,7 +1196,7 @@
       "elevation": "6596",
       "courtesy_car": false,
       "bicycles": false,
-      "camping": false,
+      "camping": true,
       "meals": false
     },
     {
