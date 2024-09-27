@@ -78,8 +78,8 @@ https://www.faa.gov/airports/resources/state_aviation
 - [x] [Oklahoma](https://oklahoma.gov/aerospace/airports/find-an-airport.html) (no pdf)
 - [x] [Oregon](https://www.oregon.gov/aviation/Pages/Reports.aspx)
 - [x] [Pennsylvania](https://www.penndot.pa.gov/TravelInPA/airports-pa/Pages/default.aspx)  (no useful state directory)
-- [ ] Rhode Island
-- [ ] [South Carolina](https://aeronautics.sc.gov/sites/default/files/2024-02/SC%20Aeronautics%20Pilots%20Book%202024%20%20PROOF3%20%281%29.pdf)
+- [x] [Rhode Island](https://flyri.com/riac/our-airports/) (no useful state directory)
+- [x] [South Carolina](https://aeronautics.sc.gov/sites/default/files/2024-02/SC%20Aeronautics%20Pilots%20Book%202024%20%20PROOF3%20%281%29.pdf)
 - [x] [South Dakota](https://dot.sd.gov/transportation/aviation/airport-information)
 - [x] [Tennessee](https://www.tdot.tn.gov/PublicDocuments/aeronautics/Airport-directory.pdf)
 - [x] [Texas](https://ftp.dot.state.tx.us/pub/txdot-info/avn/airport-directory-list.pdf)
