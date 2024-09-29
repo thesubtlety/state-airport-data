@@ -40,6 +40,7 @@ Airport data airports.csv from: https://ourairports.com/data/
 
 https://www.faa.gov/airports/resources/state_aviation
 
+
 - [x] Alabama (no useful state directory)
 - [x] Alaska (no useful state directory)
 - [x] [Arizona](https://azdot.gov/planning/airport-development/airports) (no useful state directory)
@@ -71,7 +72,7 @@ https://www.faa.gov/airports/resources/state_aviation
 - [ ] [New Hampshire](https://www.dot.nh.gov/about-nh-dot/divisions-bureaus-districts/aeronautics/airport-directory) (individual links)
 - [x] [New Jersey](https://www.nj.gov/transportation/freight/aviation/documents/NJDOTAirportDirectory.pdf)
 - [ ] New Mexico [(none published, but kind of)](https://realfilef260a66b364d453e91ff9b3fedd494dc.s3.amazonaws.com/03b30a00-9999-46c6-92b6-8719de594652?AWSAccessKeyId=AKIAJBKPT2UF7EZ6B7YA&Expires=1721493497&Signature=z8VM%2Fhcyv2q1t3UQ4tQOce%2Bf8ak%3D&response-content-disposition=inline%3B%20filename%3D%22New%20Mexico%20Aviation%202022%20Technical%20Report.pdf%22&response-content-type=application%2Fpdf) and [here](https://idea.appliedpavement.com/hosting/newmexico/#path=2)
-- [ ] [New York](https://www.dot.ny.gov/divisions/operating/opdm/aviation/repository/air_dir/toc.html) (individual pdf links)
+- [ ] [New York](hhttps://www.dot.ny.gov/divisions/operating/opdm/aviation/repository/air_dir2)
 - [x] [North Carolina](https://www.ncdot.gov/divisions/aviation/Documents/nc-airport-guide.pdf)
 - [x] [North Dakota](https://aero.nd.gov/publications/)
 - [x] [Ohio](https://www.transportation.ohio.gov/programs/aviation/airports/airport-directory)
@@ -83,13 +84,19 @@ https://www.faa.gov/airports/resources/state_aviation
 - [x] [South Dakota](https://dot.sd.gov/transportation/aviation/airport-information)
 - [x] [Tennessee](https://www.tdot.tn.gov/PublicDocuments/aeronautics/Airport-directory.pdf)
 - [x] [Texas](https://ftp.dot.state.tx.us/pub/txdot-info/avn/airport-directory-list.pdf)
-- [x] Utah  (no useful state directory)
+- [x] Utah (no useful state directory)
 - [x] [Vermont](https://vtrans.vermont.gov/sites/aot/files/aviation/VASP_FINAL_2021-08-18.pdf)
 - [x] [Virginia](https://doav.virginia.gov/airport-directory/) no useful state directory
 - [x] [Washington](https://wsdot.wa.gov/engineering-standards/all-manuals-and-standards/manuals/airport-guide)
-- [ ] West Virginia
+- [x] West Virginia (no useful state directory)
 - [x] [Wisconsin](https://wisconsindot.gov/Pages/travel/air/airport-info/arptdir-city.aspx)
 - [x] [Wyoming](https://www.dot.state.wy.us/home/aeronautics.html)
+
+
+If state directory doesn't exist, grab chart from `https://nfdc.faa.gov/nfdcApps/services/ajv5/airportDisplay.jsp?airportId=XXX | grep -i "AIRPORT DIAGRAM" | grep -iEo '\/[10](.*AD.PDF)' | tr -d '/'`
+  - https://aeronav.faa.gov/d-tpp/2409/
+  - see also - https://en.wikipedia.org/wiki/Template:FAA-diagram
+
 
 ### Other Resources
 - [FAA Chart Supplements](https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/)
