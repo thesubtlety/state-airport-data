@@ -72,7 +72,7 @@ https://www.faa.gov/airports/resources/state_aviation
 - [ ] [New Hampshire](https://www.dot.nh.gov/about-nh-dot/divisions-bureaus-districts/aeronautics/airport-directory) (individual links)
 - [x] [New Jersey](https://www.nj.gov/transportation/freight/aviation/documents/NJDOTAirportDirectory.pdf)
 - [ ] New Mexico [(none published, but kind of)](https://realfilef260a66b364d453e91ff9b3fedd494dc.s3.amazonaws.com/03b30a00-9999-46c6-92b6-8719de594652?AWSAccessKeyId=AKIAJBKPT2UF7EZ6B7YA&Expires=1721493497&Signature=z8VM%2Fhcyv2q1t3UQ4tQOce%2Bf8ak%3D&response-content-disposition=inline%3B%20filename%3D%22New%20Mexico%20Aviation%202022%20Technical%20Report.pdf%22&response-content-type=application%2Fpdf) and [here](https://idea.appliedpavement.com/hosting/newmexico/#path=2)
-- [ ] [New York](hhttps://www.dot.ny.gov/divisions/operating/opdm/aviation/repository/air_dir2)
+- [x] [New York](hhttps://www.dot.ny.gov/divisions/operating/opdm/aviation/repository/air_dir2)
 - [x] [North Carolina](https://www.ncdot.gov/divisions/aviation/Documents/nc-airport-guide.pdf)
 - [x] [North Dakota](https://aero.nd.gov/publications/)
 - [x] [Ohio](https://www.transportation.ohio.gov/programs/aviation/airports/airport-directory)

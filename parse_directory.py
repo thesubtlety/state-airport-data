@@ -827,13 +827,13 @@ def extract_page_info(page, text, state):
                     ident = lines[4]
                     #Assuming one of these lines contains the airport name
                     ident = ",".join(lines[0:10])
-                    print("ident ", ident)
+                    #print("ident ", ident)
                     identmatch = re.search(r'[, ^]([\w$@]{3})[, \n$]', ident)
                     if identmatch:
                         ident = identmatch.group(1)
 
                     namematch = re.search(r'(.*)', lines[0])
-                    print("name ", lines[0])
+                    #print("name ", lines[0])
                     if namematch:
                         nme = namematch.group(1)
                         nme = (lambda s: (lambda w: next((' '.join(w[:-i]) for i in range(len(w)//2, 0, -1) if w[:i] == w[-i:]), s))(s.split()))(nme)
@@ -850,7 +850,7 @@ def extract_page_info(page, text, state):
                         airport_info["Airport Identifier"] = ident.strip().replace("$","S")
                         airport_info["Airport Name"] = nme.strip()
                         if "HOLCOMB" in nme:
-                            continue
+                             airport_info["Airport Name"] = "Private"
                 
                 for line in lines:
                     # Check for amenities
@@ -1137,7 +1137,7 @@ def parse_state(airport_data, state, directory_url, method, start_page, end_page
                 # True if image recognition needed
                 if True:
                     save_image(pdf, i, "tmptesseract", imgDir)
-                    img = Image.open(f"{imgDir}tmptesseract.jpg")
+                    img = Image.open(f"{imgDir}tmptesseract.png")
                     text = pytesseract.image_to_string(img)
                 else:
                     text = page.extract_text()
@@ -1189,7 +1189,7 @@ def parse_state_custom(airport_data, state, directory_url, page_ranges, individu
                 # if image recognition needed
                 page = pdff.pages[i]
                 save_image(pdf, i, "tmptesseract", imgDir)
-                img = Image.open(f"{imgDir}tmptesseract.jpg")
+                img = Image.open(f"{imgDir}tmptesseract.png")
                 text = pytesseract.image_to_string(img)
                 #print(text)
                 #text = page.extract_text()  # Comment if you need to use tesseract image extraction
@@ -1212,7 +1212,7 @@ def parse_state_custom(airport_data, state, directory_url, page_ranges, individu
 
                 # # if image recognition needed
                 # save_image(pdf, i, "tmptesseract", imgDir)
-                # img = Image.open(f"{imgDir}tmptesseract.jpg")
+                # img = Image.open(f"{imgDir}tmptesseract.png")
                 # text = pytesseract.image_to_string(img)
                 text = page.extract_text()  # Comment if you need to use tesseract image extraction
                 if text:
@@ -1256,7 +1256,7 @@ def save_combined_image(pdf_path, start_page, end_page, name, imgdir):
         y_offset += image.height
     
     # Save the combined image
-    combined_image_filename = f"{imgdir}{name}.jpg"
+    combined_image_filename = f"{imgdir}{name}.png"
     combined_image.save(combined_image_filename)
 
 def save_image(pdf_path, pageNum, name, imgdir):
@@ -1265,7 +1265,7 @@ def save_image(pdf_path, pageNum, name, imgdir):
 
     images = convert_from_path(pdf_path, first_page=pageNum, last_page=pageNum)
     for i, image in enumerate(images):
-        image.save(f'{imgdir}{name}.jpg')
+        image.save(f'{imgdir}{name}.png')
 
 def download_pdf(url, save_path):
     print(f"Downloading pdf from {url}")
