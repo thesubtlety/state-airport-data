@@ -31,10 +31,6 @@ Airport data airports.csv from: https://ourairports.com/data/
 
 **Dislaimer**: data subject to error, do not use for navigation purposes, etc, etc
 
-## To Dos
-
-- [ ] fix duplicates HRF, 32S, 1D8, PUW, RGK, 25u, s60, dls, ono, 
-
 ----
 ### Directories
 
@@ -56,7 +52,7 @@ https://www.faa.gov/airports/resources/state_aviation
 - [x] Illinois (no useful state directory)
 - [x] [Indiana](https://www.in.gov/indot/multimodal/aviation/indiana-public-use-airports/) (no useful state directory)
 - [x] [Iowa](https://iowadot.gov/aviation/airport-information) (no useful state directory)
-- [ ] [Kansas](https://www.ksdot.gov/Assets/wwwksdotorg/bureaus/divAviation/pdf/AirportDir.pdf) (doubled pdf)
+- [ ] [Kansas](https://www.ksdot.gov/Assets/wwwksdotorg/bureaus/divAviation/pdf/AirportDir.pdf) (doubled pdf, use sejda.com to fix)
 - [x] [Kentucky](https://transportation.ky.gov/aviation/documents/airport-directory.pdf)
 - [x] [Louisiana](https://wwwapps.dotd.la.gov/multimodal/aviation/airportdirectory.aspx) (no useful state directory)
 - [x] [Maine](https://www.maine.gov/mdot/aviation/) (no useful state directory)
@@ -106,3 +102,7 @@ If state directory doesn't exist, grab chart from `https://nfdc.faa.gov/nfdcApps
 - [VFR Map](https://vfrmap.com/)
 - [Fly2Lunch](http://www.fly2lunch.com/index.php)
 - [Pirep.io](https://pirep.io/) ***
+
+## To Dos
+
+- [ ] fix duplicates HRF, 32S, 1D8, PUW, RGK, 25u, s60, dls, ono, 
