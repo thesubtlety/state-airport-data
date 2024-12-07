@@ -40,7 +40,7 @@ https://www.faa.gov/airports/resources/state_aviation
 - [ ] Alabama (no useful state directory)
 - [ ] Alaska (no useful state directory)
 - [ ] [Arizona](https://azdot.gov/planning/airport-development/airports) (no useful state directory)
-- [ ] [Arkansas](https://fly.arkansas.gov/airport-info.html) (individual links, needs compiled...)
+- [x] [Arkansas](https://fly.arkansas.gov/airport-info.html) (individual links, see scripts)
 - [ ] [California](https://dot.ca.gov/programs/transportation-planning/division-of-transportation-planning/aeronautics) (no useful state directory)
 - [x] [Colorado](https://www.codot.gov/programs/aeronautics/Periodicals/colorado-airport-directory)
 - [ ] [Connecticut](https://ctairports.org/airports/)  (no useful state directory)
