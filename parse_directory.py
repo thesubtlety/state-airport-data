@@ -1423,9 +1423,10 @@ def main():
     if not os.path.exists(airports_path):
         download_pdf(airports_url, airports_path)
 
-    parse_state(airport_data, "ar", id_url, "single", 1, 93)
+    parse_state(airport_data, "mt", "nilurl", "single", 35, 157)
     sys.exit(1)
 
+    parse_state(airport_data, "ar", id_url, "single", 1, 93)
     parse_state(airport_data, "ia", id_url, "pairs", 1, 228)
     parse_state(airport_data, "ks", id_url, "single", 5, 142)
     parse_state(airport_data, "ny", id_url, "single", 1, 126)
