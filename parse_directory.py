@@ -708,7 +708,7 @@ def extract_page_info(page, text, state):
                 # Check for amenities
                 if "rental" in line.lower() or "courtesy" in line.lower() or "crew car" in line.lower():
                     airport_info["Courtesy Car"] = "Yes"
-                if "camping" in line.lower() or "campsite" in line.lower() or "cabins" in line.lower():
+                if "camping" in line.lower() or "campsite" in line.lower() or "campground" in line.lower() or "cabins" in line.lower():
                     airport_info["Camping"] = "Yes"
                 mealmatch = re.search(r'service:.+[A-Za-z]\s[½¼1]|adjacent|on field', line.lower())
                 if mealmatch:
@@ -718,6 +718,10 @@ def extract_page_info(page, text, state):
             
             if airport_info["Airport Identifier"] == "8S1":
                 airport_info["Courtesy Car"] = "Yes"
+            if airport_info["Airport Identifier"] == "DLN":
+                airport_info["Courtesy Car"] = "Yes"
+            if airport_info["Airport Identifier"] == "8U4":
+                airport_info["Camping"] = "Yes"
 
             return airport_info      
         case "oh":
@@ -1423,7 +1427,7 @@ def main():
     if not os.path.exists(airports_path):
         download_pdf(airports_url, airports_path)
 
-    parse_state(airport_data, "mt", "nilurl", "single", 35, 157)
+    parse_state(airport_data, "mt", "nilurl", "single", 35, 155)
     sys.exit(1)
 
     parse_state(airport_data, "ar", id_url, "single", 1, 93)
