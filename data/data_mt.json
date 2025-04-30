@@ -20,7 +20,7 @@
       "courtesy_car": false,
       "bicycles": false,
       "camping": false,
-      "meals": false
+      "meals": true
     },
     {
       "id": "3U5",
@@ -262,7 +262,7 @@
       "courtesy_car": false,
       "bicycles": false,
       "camping": false,
-      "meals": true
+      "meals": false
     },
     {
       "id": "S01",
@@ -581,7 +581,7 @@
       "courtesy_car": true,
       "bicycles": false,
       "camping": false,
-      "meals": true
+      "meals": false
     },
     {
       "id": "48S",
@@ -691,7 +691,7 @@
       "courtesy_car": true,
       "bicycles": false,
       "camping": false,
-      "meals": true
+      "meals": false
     },
     {
       "id": "S27",
@@ -778,7 +778,7 @@
       "elevation": "4603",
       "courtesy_car": true,
       "bicycles": true,
-      "camping": false,
+      "camping": true,
       "meals": true
     },
     {
@@ -1054,7 +1054,7 @@
       "courtesy_car": true,
       "bicycles": false,
       "camping": false,
-      "meals": false
+      "meals": true
     },
     {
       "id": "8U4",
@@ -1064,7 +1064,7 @@
       "elevation": "3670",
       "courtesy_car": false,
       "bicycles": false,
-      "camping": false,
+      "camping": true,
       "meals": false
     },
     {
@@ -1142,7 +1142,7 @@
       "courtesy_car": true,
       "bicycles": false,
       "camping": false,
-      "meals": true
+      "meals": false
     },
     {
       "id": "9S5",
@@ -1240,7 +1240,7 @@
       "elevation": "6649",
       "courtesy_car": true,
       "bicycles": true,
-      "camping": false,
+      "camping": true,
       "meals": false
     },
     {
