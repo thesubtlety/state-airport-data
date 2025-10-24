@@ -448,7 +448,7 @@
       "elevation": "2484",
       "courtesy_car": true,
       "bicycles": false,
-      "camping": false,
+      "camping": true,
       "meals": true
     },
     {

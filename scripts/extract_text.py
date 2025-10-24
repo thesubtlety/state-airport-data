@@ -6,8 +6,11 @@ import os
 path = sys.argv[1]
 
 with pdfplumber.open(path) as pdff:
-    first_page = pdff.pages[0]
+    first_page = pdff.pages[50]
     text = first_page.extract_text()
+    print("Default extraction:", first_page.extract_text())
+    print("\nWith layout:", first_page.extract_text(layout=True))
+    print("\nWith x_tolerance=3:", first_page.extract_text(x_tolerance=3))
     print(text)
 
 lines = text.split('\n')

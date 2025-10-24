@@ -22,6 +22,7 @@ wy_url = 'https://drive.google.com/file/d/1s04nV-sgQ0J5bsz9d9yyxE2I1RP3k0ao/view
 airports_url = 'https://davidmegginson.github.io/ourairports-data/airports.csv'
 airports_path = 'data/airports.csv'
 
+
 def extract_page_info(page, text, state):
     # Initialize dictionary to hold extracted info
     airport_info = {
@@ -1272,7 +1273,7 @@ def parse_state(airport_data, state, directory_url, method, start_page, end_page
             for i, page in enumerate(pdff.pages[start_page-1:], start=start_page):
                 
                 # True if image recognition needed
-                if False:
+                if True:
                     save_image(pdf, i, "tmptesseract", imgDir)
                     img = Image.open(f"{imgDir}tmptesseract.png")
                     text = pytesseract.image_to_string(img)
@@ -1427,9 +1428,11 @@ def main():
     if not os.path.exists(airports_path):
         download_pdf(airports_url, airports_path)
 
-    parse_state(airport_data, "mt", "nilurl", "single", 35, 155)
+    parse_state(airport_data, "id", id_url, "single", 75, 75)
+    #parse_state(airport_data, "id", id_url, "single", 39, 181)
     sys.exit(1)
 
+    parse_state(airport_data, "mt", "nilurl", "single", 35, 155)
     parse_state(airport_data, "ar", id_url, "single", 1, 93)
     parse_state(airport_data, "ia", id_url, "pairs", 1, 228)
     parse_state(airport_data, "ks", id_url, "single", 5, 142)
@@ -1448,7 +1451,6 @@ def main():
     parse_state(airport_data, "nv", "nilurl", "pairs", 12, 111)
     parse_state(airport_data, "ne", "nilurl", "single", 8, 86)
     parse_state(airport_data, "mo", "nilurl", "pairs", 17, 258)
-    parse_state(airport_data, "id", id_url, "single", 38, 182)
     parse_state(airport_data, "fl", "nilurl", "single", 11, 138)
     parse_state(airport_data, "md", mn_url, "pairs", 11, 78)
     parse_state(airport_data, "mn", mn_url, "pairs", 22, 293)

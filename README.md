@@ -101,6 +101,7 @@ If state directory doesn't exist, grab chart from `https://nfdc.faa.gov/nfdcApps
 - [VFR Map](https://vfrmap.com/)
 - [Fly2Lunch](http://www.fly2lunch.com/index.php)
 - [Pirep.io](https://pirep.io/) ***
+- https://thepilotsplace.com/forum/index.php?threads/list-of-state-airport-directories.980/
 
 ### Random
 

@@ -2,3 +2,4 @@ pdfplumber
 pandas
 pdf2image
 requests
+pytesseract
