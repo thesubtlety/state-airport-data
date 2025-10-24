@@ -72,7 +72,7 @@ https://www.faa.gov/airports/resources/state_aviation
 - [x] [North Carolina](https://www.ncdot.gov/divisions/aviation/Documents/nc-airport-guide.pdf)
 - [x] [North Dakota](https://aero.nd.gov/publications/)
 - [x] [Ohio](https://www.transportation.ohio.gov/programs/aviation/airports/airport-directory)
-- [ ] [Oklahoma](https://oklahoma.gov/aerospace/airports/find-an-airport.html) (no pdf)
+- [x] [Oklahoma](https://oklahoma.gov/aerospace/airports/find-an-airport.html) (no pdfs)
 - [x] [Oregon](https://www.oregon.gov/aviation/Pages/Reports.aspx)
 - [ ] [Pennsylvania](https://www.penndot.pa.gov/TravelInPA/airports-pa/Pages/default.aspx)  (no useful state directory)
 - [ ] [Rhode Island](https://flyri.com/riac/our-airports/) (no useful state directory)
@@ -93,6 +93,13 @@ If state directory doesn't exist, grab chart from `https://nfdc.faa.gov/nfdcApps
   - https://aeronav.faa.gov/d-tpp/2409/
   - see also - https://en.wikipedia.org/wiki/Template:FAA-diagram
 
+d-TPP XML
+  - https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dtpp (download latest d-TPP XML)
+    - https://aeronav.faa.gov/d-tpp/2511/xml_data/d-tpp_Metafile.xml
+  - `yq -p=xml -o=json d-tpp_Metafile.xml > d-ttp_Metafile.json`
+  - run `scripts/extract_diagrams.jq`
+  - pdf info in `data/airport_diagrams_lookup.json`
+
 ### Other Resources
 - [FAA Chart Supplements](https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/dafd/)
 - [VFR Charts](https://www.faa.gov/air_traffic/flight_info/aeronav/digital_products/vfr/)
@@ -101,7 +108,6 @@ If state directory doesn't exist, grab chart from `https://nfdc.faa.gov/nfdcApps
 - [VFR Map](https://vfrmap.com/)
 - [Fly2Lunch](http://www.fly2lunch.com/index.php)
 - [Pirep.io](https://pirep.io/) ***
-- https://thepilotsplace.com/forum/index.php?threads/list-of-state-airport-directories.980/
 
 ### Random
 
